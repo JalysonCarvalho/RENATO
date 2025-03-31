@@ -1,0 +1,31 @@
+<script>
+    /*10. Faça um programa que carregue um vetor com dez números reais, 
+    calcule e mostre a quantidade de números negativos e a soma dos números positivos desse vetor.*/
+    
+    function processarNumeros() {
+        const numeros = [];
+        let somaPositivos = 0;
+        let qtdNegativos = 0;
+    
+        // Preenche o vetor com 10 números reais fornecidos pelo usuário
+        for (let i = 0; i < 10; i++) {
+            let numero = parseFloat(prompt("Digite o número real para a posição " + (i + 1) + ":"));
+            numeros.push(numero);
+    
+            // Verifica se o número é negativo ou positivo
+            if (numero < 0) {
+                qtdNegativos++;
+            } else if (numero > 0) {
+                somaPositivos += numero;
+            }
+        }
+    
+        // Exibe os resultados
+        alert("Quantidade de números negativos: " + qtdNegativos);
+        alert("Soma dos números positivos: " + somaPositivos.toFixed(2));
+    }
+    
+    // Chama a função para processar os números
+    processarNumeros();
+    </script>
+    

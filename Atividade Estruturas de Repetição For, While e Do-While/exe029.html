@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*29. Peça notas ao usuário até que ele escolha parar. Após isso, exiba a média das notas
+digitadas.*/
+// Variáveis para armazenar a soma das notas e a quantidade de notas
+let somaNotas = 0;
+let quantidadeNotas = 0;
+let nota;
+let continuar = true; // Variável para controlar se o usuário quer continuar
+
+// Loop para pedir as notas
+while (continuar) {
+    // Solicita a nota do usuário
+    nota = Number(prompt("Digite uma nota (ou -1 para parar):"));
+
+    // Verifica se o usuário quer parar
+    if (nota === -1) {
+        continuar = false; // Sai do loop se o usuário digitar -1
+    } else if (nota >= 0 && nota <= 10) {
+        // Adiciona a nota válida à soma e incrementa a quantidade de notas
+        somaNotas += nota;
+        quantidadeNotas++;
+    } else {
+        // Caso a nota seja inválida
+        alert("Nota inválida! Digite uma nota entre 0 e 10.");
+    }
+}
+
+// Calcula e exibe a média das notas
+if (quantidadeNotas > 0) {
+    let media = somaNotas / quantidadeNotas;
+    alert("Média das notas: " + media.toFixed(2));
+} else {
+    alert("Nenhuma nota válida foi digitada.");
+}
+
+    </script>
+</body>
+</html>

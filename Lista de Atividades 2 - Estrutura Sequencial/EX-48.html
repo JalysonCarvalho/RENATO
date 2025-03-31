@@ -1,0 +1,32 @@
+<script>
+    /*48. Escreva um programa que calcula o desconto previdenciário de um funcionário. Dado um
+    salário, o programa deve retornar o valor do desconto proporcional ao mesmo. O cálculo
+    segue a regra: o desconto é de 11% do valor do salário, entretanto, o valor máximo de
+    desconto é 334,29, o que seja menor.*/
+    
+    function calcularDescontoPrevidenciario() {
+        // Solicita ao usuário o valor do salário
+        let salario = Number(prompt("Digite o salário do funcionário:"));
+    
+        // Verifica se o salário é válido (maior que zero)
+        if (salario <= 0) {
+            alert("Por favor, insira um salário válido.");
+            return;
+        }
+    
+        // Calcula o desconto de 11% do salário
+        let desconto = salario * 0.11;
+    
+        // Verifica se o desconto ultrapassa o limite de R$ 334,29
+        if (desconto > 334.29) {
+            desconto = 334.29;
+        }
+    
+        // Exibe o valor do desconto
+        alert("O valor do desconto previdenciário é: R$ " + desconto.toFixed(2));
+    }
+    
+    // Chama a função para executar o programa
+    calcularDescontoPrevidenciario();
+    </script>
+    

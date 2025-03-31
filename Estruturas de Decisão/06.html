@@ -1,0 +1,34 @@
+<meta charset="utf-8">
+<script>
+/* 6. Suponha que você está programando um módulo contador de cédulas para caixas eletrônicos. Escreva um
+programa que informa com quantas cédulas de Real podemos representar um dado valor. Exemplo de
+resposta: R$ 218 = 2 cédulas de 100, 1 cédula de 10, 1 cédula de 5, 1 cédula de 2 e 1 cédula de 1. Procure
+minimizar o número de cédulas usadas. Desconsidere valores com centavos, e suponha que a máquina sempre
+tem disponíveis as cédulas necessárias.. */
+
+
+  // Recebe o valor a ser sacado
+  const valor = Number(prompt("Digite o valor a ser sacado (somente números inteiros):"));
+
+  // Define as cédulas disponíveis
+  const cedulas = [100, 50, 20, 10, 5, 2, 1];
+  let restante = valor;
+
+  // Armazena o resultado
+  let resultado = `Valor a ser sacado: R$ ${valor}\n`;
+
+  // Calcula a quantidade de cédulas necessárias
+  for (const cedula of cedulas) {
+    const quantidade = Math.floor(restante / cedula);
+    if (quantidade > 0) {
+      resultado += `${quantidade} cédula(s) de R$ ${cedula}\n`;
+      restante %= cedula;
+    }
+  }
+
+  // Exibe o resultado
+  alert(resultado);
+
+
+
+</script>

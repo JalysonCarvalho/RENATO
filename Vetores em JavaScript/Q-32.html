@@ -1,0 +1,33 @@
+<script>
+    /*32. Faça um programa que carregue dois vetores de dez posições cada um,
+    calcule e mostre um terceiro vetor que contenha os elementos dos dois vetores
+    anteriores ordenados de maneira decrescente.*/
+    
+    function ordenarVetores() {
+        // Declaração dos dois vetores com 10 posições
+        const vetor1 = [];
+        const vetor2 = [];
+        
+        // Preenchendo os vetores com valores fornecidos pelo usuário
+        for (let i = 0; i < 10; i++) {
+            let numero1 = parseInt(prompt("Digite o número " + (i + 1) + " para o vetor 1:"));
+            let numero2 = parseInt(prompt("Digite o número " + (i + 1) + " para o vetor 2:"));
+            
+            vetor1.push(numero1);
+            vetor2.push(numero2);
+        }
+    
+        // Criando o terceiro vetor com a combinação dos dois vetores
+        const vetor3 = vetor1.concat(vetor2);
+    
+        // Ordenando o vetor3 em ordem decrescente
+        vetor3.sort((a, b) => b - a);
+    
+        // Exibindo o vetor ordenado
+        alert("Vetor 3 ordenado de forma decrescente: " + vetor3.join(", "));
+    }
+    
+    // Chama a função para processar os vetores
+    ordenarVetores();
+    </script>
+    

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupom Fiscal</title>
+    <link rel="stylesheet" href="stylescupom.css">
+</head>
+<body>
+    
+    <header>
+        <h1>Cupom Fiscal</h1>
+    </header>
+    <div id="cupomContainer"></div>
+    
+<!-- Botão para fazer novo pedido -->
+<button id="novoPedidoButton" onclick="novoPedido()">Fazer Novo Pedido</button>
+
+    <script>
+        // Função para carregar e exibir o cupom fiscal
+        function carregarCupom() {
+            const dadosCompra = JSON.parse(localStorage.getItem("dadosCompra"));
+            
+            if (dadosCompra) {
+                let cupomContainer = document.getElementById("cupomContainer");
+                cupomContainer.innerHTML = "<h3>Detalhes da Compra</h3>";
+
+                dadosCompra.produtos.forEach(produto => {
+                    cupomContainer.innerHTML += `
+                        <p>${produto.quantidade}x ${produto.nome} - R$ ${produto.preco.toFixed(2)} cada - Total: R$ ${(produto.preco * produto.quantidade).toFixed(2)}</p>
+                    `;
+                });
+
+                cupomContainer.innerHTML += `<hr>`;
+                cupomContainer.innerHTML += `<p><strong>Total da compra: R$ ${dadosCompra.total.toFixed(2)}</strong></p>`;
+                cupomContainer.innerHTML += `<p><strong>Total com 10% (se aplicável): R$ ${dadosCompra.totalComTaxa.toFixed(2)}</strong></p>`;
+            } else {
+                window.location.href = "index.html"; // Redireciona de volta para o pedido se não houver dados
+            }
+        }
+        function novoPedido() {
+    // Limpar os detalhes do cupom
+    document.getElementById("cupomContainer").style.display = 'none';
+
+    // Exibir novamente a página do pedido
+    window.location.href = 'index.html'; // Substitua pelo nome da página de pedidos
+}
+
+        // Carregar o cupom ao carregar a página
+        window.onload = carregarCupom;
+    </script>
+    
+       
+        
+      
+   
+    
+  
+</body>
+
+</html>

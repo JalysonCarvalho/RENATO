@@ -1,0 +1,30 @@
+<script>
+    /*12. Escreva um programa que declare um vetor de inteiros com tamanho 5
+    e preencha-o com valores fornecidos pelo usuário. Em seguida, encontre
+    e exiba o maior elemento do vetor.*/
+    
+    function encontrarMaiorElemento() {
+        const vetor = [];
+        let maiorElemento;
+    
+        // Preenche o vetor com valores fornecidos pelo usuário
+        for (let i = 0; i < 5; i++) {
+            vetor[i] = parseInt(prompt("Digite o valor para a posição " + i + ":"));
+        }
+    
+        // Encontra o maior elemento no vetor
+        maiorElemento = vetor[0];
+        for (let i = 1; i < vetor.length; i++) {
+            if (vetor[i] > maiorElemento) {
+                maiorElemento = vetor[i];
+            }
+        }
+    
+        // Exibe o maior elemento do vetor
+        alert("O maior elemento do vetor é: " + maiorElemento);
+    }
+    
+    // Chama a função para encontrar e exibir o maior elemento
+    encontrarMaiorElemento();
+    </script>
+    

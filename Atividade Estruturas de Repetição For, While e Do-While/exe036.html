@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //36. Faça um programa que leia cinco pares de valores (a,b), todos inteiros e positivos, um de cada vez.Mostre os números inteiros pares de a até b (inclusive)
+    
+        for (let i = 1; i <= 5; i++) {
+        let a = parseInt(prompt(`Digite o valor de a (par ${i}):`));
+        let b = parseInt(prompt(`Digite o valor de b (par ${i}):`));
+    
+        if (a > b) {
+            alert("O valor de a deve ser menor ou igual ao valor de b. Tente novamente.");
+            i--; // Volta o loop para repetir o par atual
+            continue;
+        }
+    
+        let pares = [];
+        for (let num = a; num <= b; num++) {
+            if (num % 2 === 0) {
+                pares.push(num); // Adiciona os números pares ao array
+            }
+        }
+    
+        alert(`Números pares entre ${a} e ${b}: ${pares.join(", ")}`);
+    }
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

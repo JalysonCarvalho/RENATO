@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //38.Foi feita uma estatística em cinco cidades brasileiras para coletar dados sobre acidentes de trânsito. Foram obtidos os seguintes dados:
+        // a. Código da cidade;
+        // b. Número de veículos de passeio (em 1999);
+        // c. Número de acidentes de trânsito com vítimas (em 1999).Deseja-se saber:
+        // I) Qual o maior e menor índice de acidentes de trânsito e a que cidade pertence;
+        // II) Qual a média de veículos nas cinco cidades juntas;
+        // III) Qual a média de acidentes de trânsito nas cidades com menos de 2.000 veículos depasseio.
+    
+        // Variáveis para armazenar os dados
+        let totalVeiculos = 0;
+        let somaAcidentesMenos2000 = 0;
+        let cidadesMenos2000 = 0;
+    
+        let maiorIndiceAcidentes = -1;
+        let menorIndiceAcidentes = Number.MAX_SAFE_INTEGER;
+        let cidadeMaiorIndice = "";
+        let cidadeMenorIndice = "";
+    
+        // Coleta de dados de 5 cidades
+        for (let i = 1; i <= 5; i++) {
+            // Solicita os dados ao usuário
+            let codigoCidade = prompt(`Digite o código da cidade ${i}:`);
+            let veiculosPasseio = parseInt(prompt(`Digite o número de veículos de passeio da cidade ${codigoCidade} (em 1999):`));
+            let acidentesVítimas = parseInt(prompt(`Digite o número de acidentes com vítimas na cidade ${codigoCidade} (em 1999):`));
+    
+            // Soma o número total de veículos
+            totalVeiculos += veiculosPasseio;
+    
+            // Verifica o maior índice de acidentes
+            if (acidentesVítimas > maiorIndiceAcidentes) {
+                maiorIndiceAcidentes = acidentesVítimas;
+                cidadeMaiorIndice = codigoCidade;
+            }
+    
+            // Verifica o menor índice de acidentes
+            if (acidentesVítimas < menorIndiceAcidentes) {
+                menorIndiceAcidentes = acidentesVítimas;
+                cidadeMenorIndice = codigoCidade;
+            }
+    
+            // Soma os acidentes em cidades com menos de 2000 veículos
+            if (veiculosPasseio < 2000) {
+                somaAcidentesMenos2000 += acidentesVítimas;
+                cidadesMenos2000++;
+            }
+        }
+    
+        // Cálculo das médias
+        let mediaVeiculos = totalVeiculos / 5;
+        let mediaAcidentesMenos2000 = cidadesMenos2000 > 0 ? somaAcidentesMenos2000 / cidadesMenos2000 : 0;
+    
+        // Exibição dos resultados
+        alert(`Maior índice de acidentes: ${maiorIndiceAcidentes}, na cidade ${cidadeMaiorIndice}`);
+        alert(`Menor índice de acidentes: ${menorIndiceAcidentes}, na cidade ${cidadeMenorIndice}`);
+        alert(`Média de veículos de passeio nas cinco cidades: ${mediaVeiculos.toFixed(2)}`);
+        if (cidadesMenos2000 > 0) {
+            alert(`Média de acidentes nas cidades com menos de 2000 veículos: ${mediaAcidentesMenos2000.toFixed(2)}`);
+        } else {
+            alert("Nenhuma cidade possui menos de 2000 veículos.");
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>

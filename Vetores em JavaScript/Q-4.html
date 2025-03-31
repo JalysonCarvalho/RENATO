@@ -1,0 +1,40 @@
+<script>
+    /*4. Faça um programa que receba dez números inteiros e armazene-os em
+    um vetor. Calcule e mostre dois vetores resultantes. O primeiro com
+    os números pares e o segundo com os números ímpares.*/
+    
+    function separarParesEImpares() {
+        // Declara os vetores para números pares e ímpares
+        const numeros = [];
+        const pares = [];
+        const impares = [];
+    
+        // Recebe 10 números do usuário
+        for (let i = 0; i < 10; i++) {
+            let numero = prompt("Digite o número " + (i + 1) + ":");
+            
+            // Valida a entrada para garantir que o número seja inteiro
+            while (isNaN(numero) || numero === "") {
+                numero = prompt("Por favor, digite um número válido para a posição " + (i + 1) + ":");
+            }
+            
+            numero = parseInt(numero); // Converte para inteiro
+            numeros.push(numero);
+    
+            // Verifica se o número é par ou ímpar
+            if (numero % 2 === 0) {
+                pares.push(numero); // Adiciona ao vetor de pares
+            } else {
+                impares.push(numero); // Adiciona ao vetor de ímpares
+            }
+        }
+    
+        // Exibe os vetores resultantes
+        alert("Números Pares: " + pares.join(", "));
+        alert("Números Ímpares: " + impares.join(", "));
+    }
+    
+    // Chama a função para separar os números
+    separarParesEImpares();
+    </script>
+    

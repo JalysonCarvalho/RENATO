@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<script>
+/*15. Faça um programa que receba um numero positivo e maior que zero, calcule e mostre: a)O
+número digitado ao quadrado; b) O número digitado ao cubo; c) A raiz quadrada do numero
+digitado; d) A raiz cúbica do numero digitado.*/
+
+const numero = Number(prompt("Digite um número positivo maior que zero:"));
+
+if (numero > 0) {
+    alert(`Quadrado: ${numero**2}
+    \nCubo: ${numero**3}
+    \nRaiz quadrada: ${numero**0.5}
+    \nRaiz cúbica: ${numero**(1/3)}`);
+} else {
+    alert("Digite um número positivo maior que zero.");
+}
+</script>

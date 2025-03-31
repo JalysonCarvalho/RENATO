@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*3. Escreva um algoritmo que calcule a média dos números digitados pelo usuário, se eles
+        forem pares. Termine a leitura se o usuário digitar zero (0).*/
+        let media = 0
+        let par = 0
+        let num 
+
+        while (num != 0) {
+            num = Number (prompt("Digite um Número"))
+
+            if(num%2==0 && num!==0){
+                //media+=num
+
+               media = media + num
+               par++
+            }
+        }
+        alert("Média dos "+par+" Valores Pares = "+(media/par))
+
+    </script>
+</body>
+</html>

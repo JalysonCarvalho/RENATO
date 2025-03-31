@@ -1,0 +1,36 @@
+<script>
+    /*14. Uma escola deseja saber se existem alunos cursando, simultaneamente, as disciplinas
+    Lógica da Programação. Coloque os números das matrículas dos alunos que cursam Lógica em
+    um vetor, no máximo 15 alunos. Coloque os números das matrículas dos alunos que cursam
+    Linguagem de Programação em outro vetor, no máximo dez alunos. Mostre o número
+    da matrícula que aparece nos dois vetores.*/
+    
+    function verificarMatriculasSimultaneas() {
+        // Vetores de matrículas dos alunos
+        const logica = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]; // Lógica da Programação
+        const linguagem = [103, 104, 106, 108, 109, 110, 116, 117, 118, 119]; // Linguagem de Programação
+    
+        // Vetor para armazenar as matrículas comuns
+        const matriculasComuns = [];
+    
+        // Verifica se a matrícula de Lógica da Programação também está em Linguagem de Programação
+        for (let i = 0; i < logica.length; i++) {
+            for (let j = 0; j < linguagem.length; j++) {
+                if (logica[i] === linguagem[j]) {
+                    matriculasComuns.push(logica[i]);
+                }
+            }
+        }
+    
+        // Exibe as matrículas comuns
+        if (matriculasComuns.length > 0) {
+            alert("Matrículas que cursam ambas as disciplinas: " + matriculasComuns.join(", "));
+        } else {
+            alert("Não há matrículas comuns entre as duas disciplinas.");
+        }
+    }
+    
+    // Chama a função para verificar as matrículas comuns
+    verificarMatriculasSimultaneas();
+    </script>
+    

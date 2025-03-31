@@ -1,0 +1,28 @@
+<script>
+    /*4. Cálculo de Fatorial: Implemente uma função fatorial() 
+    que recebe um número inteiro positivo e retorna seu fatorial.*/
+    
+    function fatorial() {
+        // Solicita ao usuário um número inteiro positivo
+        const numero = parseInt(prompt("Digite um número inteiro positivo:"));
+    
+        // Verifica se o número é válido e positivo
+        if (numero < 0) {
+            alert("Por favor, insira um número inteiro positivo.");
+            return;
+        }
+    
+        // Calcula o fatorial
+        let resultado = 1;
+        for (let i = 1; i <= numero; i++) {
+            resultado *= i;
+        }
+    
+        // Exibe o resultado do fatorial
+        alert(`O fatorial de ${numero} é: ${resultado}`);
+    }
+    
+    // Chama a função para executar o programa
+    fatorial();
+    </script>
+    

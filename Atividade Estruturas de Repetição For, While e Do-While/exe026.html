@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*26. Escreva um programa que peça a senha ao usuário. O programa deve continuar solicitando a senha até que o usuário insira a senha correta, definida previamente no programa. Após o login bem-sucedido, exiba "Acesso permitido". 
+*/
+
+// Definindo a senha correta
+const senhaCorreta = "1234"; // Substitua pela senha desejada
+
+let senha = ""; // Variável para armazenar a senha informada pelo usuário
+
+// Loop que continua pedindo a senha até que seja a correta
+while (senha !== senhaCorreta) {
+    senha = prompt("Digite a senha:");
+
+    if (senha !== senhaCorreta) {
+        alert("Senha incorreta. Tente novamente.");
+    }
+}
+
+// Exibe a mensagem de acesso permitido após a senha correta
+alert("Acesso permitido");
+
+    </script>
+</body>
+</html>

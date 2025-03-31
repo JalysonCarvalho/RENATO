@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //45. Sistema de Resfriamento de Leite Você foi incumbido de desenvolver um programa em JavaScript para um sistema de resfriamento de leite em uma fazenda. O sistema registra diariamente a quantidade de leite entregue pelos produtores. O tanque de resfriamento tem uma capacidade máxima de mil litros.
+    
+        //O programa deve permitir que os produtores informem a quantidade de leite entregue diariamente em seus baldes. Cada vez que um produtor registra sua entrega, o programa deve calcular e exibir a quantidade total de leite no tanque de resfriamento. O sistema deve impedir que a quantidade total exceda a capacidade máxima do tanque (mil litros).
+    
+    
+        // Capacidade máxima do tanque
+        const capacidadeMaxima = 1000;
+    
+        // Variável para armazenar a quantidade atual de leite no tanque
+        let quantidadeAtual = 0;
+    
+        while (true) {
+            // Solicita a quantidade de leite entregue pelo produtor
+            let quantidadeEntregue = parseFloat(
+                prompt(`Quantidade atual no tanque: ${quantidadeAtual} litros\nDigite a quantidade de leite entregue pelo produtor (ou 0 para encerrar):`)
+            );
+    
+            // Verifica se o usuário deseja encerrar o programa
+            if (quantidadeEntregue === 0) {
+                alert("Encerrando o registro de entregas. Obrigado!");
+                break;
+            }
+    
+            // Verifica se o valor é válido (não negativo e numérico)
+            if (quantidadeEntregue < 0 || isNaN(quantidadeEntregue)) {
+                alert("Por favor, insira uma quantidade válida (número positivo).");
+                continue;
+            }
+    
+            // Verifica se o tanque tem capacidade para a entrega
+            if (quantidadeAtual + quantidadeEntregue > capacidadeMaxima) {
+                alert(`Entrega não aceita! O tanque não suporta mais ${quantidadeEntregue} litros.\nCapacidade restante: ${capacidadeMaxima - quantidadeAtual} litros.`);
+            } else {
+                // Adiciona a entrega ao tanque
+                quantidadeAtual += quantidadeEntregue;
+                alert(`Entrega registrada com sucesso! Quantidade atual no tanque: ${quantidadeAtual} litros.`);
+            }
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>

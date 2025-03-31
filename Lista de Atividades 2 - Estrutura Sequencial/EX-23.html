@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<script>
+/*23. Dado os três lados de um triângulo determinar o perímetro do mesmo.*/
+
+const lado1 = Number(prompt("Digite o valor do primeiro lado do triângulo:"));
+const lado2 = Number(prompt("Digite o valor do segundo lado do triângulo:"));
+const lado3 = Number(prompt("Digite o valor do terceiro lado do triângulo:"));
+
+if (lado1 > 0 && lado2 > 0 && lado3 > 0) {
+    const perimetro = lado1 + lado2 + lado3;
+
+    alert(`O perímetro do triângulo é: ${perimetro.toFixed(2)}`);
+} else {
+    alert("Por favor, insira valores válidos para os lados do triângulo.");
+}
+
+</script>

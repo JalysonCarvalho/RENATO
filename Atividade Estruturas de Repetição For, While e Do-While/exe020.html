@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*20. Solicite ao usuário, e armazene-as. Pare de pedir quando ele digitar uma idade
+negativa.*/
+
+let idades = [];  // Array para armazenar as idades
+let idade = 0;    // Variável para armazenar a idade informada
+
+// Loop que continua pedindo idades até que a idade negativa seja informada
+while (idade >= 0) {
+    idade = Number(prompt("Informe a idade (digite um número negativo para parar):"));
+    
+    // Se a idade for válida (não negativa), adiciona ao array
+    if (idade >= 0) {
+        idades.push(idade);
+    }
+}
+
+// Mostra todas as idades informadas
+alert("Idades informadas: " + idades.join(", "));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //43. Desenvolver um algoritmo que leia um número não determinado de valores e calcule eescreva a média aritmética dos valores lidos, a quantidade de valores positivos, a quantidade de valores negativos e o percentual de valores negativos e positivos.
+        let num
+        let somaValores = 0
+        let quantidadePositivos = 0
+        let quantidadeNegativos = 0
+        let percentualNegativos = 0
+        let percentualPositivos = 0
+        let contador = 0
+        while(num!=0){
+            num = Number(prompt("Digite um número (0 para sair):"))
+            contador++
+            somaValores+=num
+            if(num>0){
+                quantidadePositivos++
+            }else if(num<0){
+                quantidadeNegativos++
+            }
+            if(num<0){
+                percentualNegativos = (quantidadeNegativos/contador)*100
+            }else{
+                percentualPositivos = (quantidadePositivos/contador)*100
+            }
+            if(contador==1){
+                mediaValores = num
+            } else{
+                mediaValores = somaValores/contador
+            }
+            alert("Média Aritmética: " + mediaValores)
+            alert("Quantidade de Valores Positivos: " + quantidadePositivos)
+            alert("Quantidade de Valores Negativos: " + quantidadeNegativos)
+            alert("Percentual de Valores Negativos: " + percentualNegativos.toFixed(2) + "%")
+            alert("Percentual de Valores Positivos: " + percentualPositivos.toFixed(2) + "%")
+        }
+        //alert("Média Aritmética: " + mediaValores)
+            
+    
+    </script>
+</body>
+</html>

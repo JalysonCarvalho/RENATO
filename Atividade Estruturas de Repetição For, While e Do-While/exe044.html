@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //44. Escrever um algoritmo que leia uma quantidade desconhecida de números e contequantos deles estão nos seguintes intervalos: [0-25], [26-50], [51-75] e [76-100]. A entrada de dados deve terminar quando for lido um número negativo.
+    
+        let numero = ""
+        let intervalo01 = 0
+        let intervalo2650 = 0
+        let intervalo5175 = 0
+        let intervalo76100 = 0
+        while(numero>=0){
+            numero = Number(prompt("Digite um número (negativo para sair)"))
+            if(numero>=0 && numero<=25){
+                intervalo01++
+            }else if(numero>=26 && numero<=50){
+                intervalo2650++
+            }else if(numero>=51 && numero<=75){
+                intervalo5175++
+            }else if(numero>=76 && numero<=100){
+                intervalo76100++
+            }
+        }
+        alert("Intervalo [0-25]: " + intervalo01)
+        alert("Intervalo [26-50]: " + intervalo2650)
+        alert("Intervalo [51-75]: " + intervalo5175)
+        alert("Intervalo [76-100]: " + intervalo76100)
+    
+    </script>
+</body>
+</html>

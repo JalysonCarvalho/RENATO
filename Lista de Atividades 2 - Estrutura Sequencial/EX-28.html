@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<script>
+    /*28. Faça um algoritmo que calcule e apresente o valor do volume de uma lata de óleo, dado seu raio e sua altura.
+(considere PI=3.14)*/
+
+ // Solicita o raio e a altura da lata ao usuário
+ const raio = Number(prompt("Digite o raio da lata em centímetros:"));
+    const altura = Number(prompt("Digite a altura da lata em centímetros:"));
+
+    // Verifica se os valores inseridos são válidos
+    if (raio > 0 && altura > 0) {
+        // Calcula o volume usando a fórmula V = π * r^2 * h
+        const volume = Math.PI * Math.pow(raio, 2) * altura;
+
+        // Exibe o resultado com duas casas decimais
+        alert(`O volume da lata de óleo é: ${volume.toFixed(2)} cm³`);
+    } else {
+        // Caso algum valor inserido seja inválido
+        alert("Por favor, insira valores válidos para o raio e a altura.");
+    }
+</script>

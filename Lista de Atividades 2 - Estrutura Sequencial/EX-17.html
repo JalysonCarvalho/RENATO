@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<script>
+/*17. Faça um programa que receba o ano de nascimento de uma pessoa e o ano atual, calcule e
+mostre: a) A idade dessa pessoa; b) Quantos anos ela terá em 2050.*/
+
+const anoNascimento = Number(prompt("Digite o seu ano de nascimento:"));
+const anoAtual = Number(prompt("Digite o ano atual:"));
+
+if (anoNascimento > 0 && anoAtual > 0 && anoAtual >= anoNascimento) {
+    const idade = anoAtual - anoNascimento;
+    const idade2050 = 2050 - anoNascimento;
+
+    alert(`Sua idade atual é: ${idade} anos`);
+    alert(`Em 2050, você terá: ${idade2050} anos`);
+} else {
+    alert("Por favor, insira anos válidos.");
+}
+
+</script>

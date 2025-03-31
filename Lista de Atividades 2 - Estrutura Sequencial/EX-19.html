@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<script>
+/*19. Faça um programa que calcule e mostre a área de um trapézio. Sabe-se que: A = ((base
+maior + base menor) * altura)/2*/
+
+const baseMaior = Number(prompt("Digite o valor da base maior do trapézio:"));
+const baseMenor = Number(prompt("Digite o valor da base menor do trapézio:"));
+const altura = Number(prompt("Digite o valor da altura do trapézio:"));
+
+if (baseMaior > 0 && baseMenor > 0 && altura > 0) {
+    const area = ((baseMaior + baseMenor) * altura) / 2;
+    alert(`A área do trapézio é: ${area.toFixed(2)}`);
+} else {
+    alert("Por favor, insira valores válidos para as bases e altura.");
+}
+
+</script>

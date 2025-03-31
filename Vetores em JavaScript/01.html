@@ -1,0 +1,18 @@
+<script>
+    // 01.Faça um programa que leia um vetor de 50 posições de numeros inteiros e mostre somente os números positivos.
+
+    let numeros = [];
+    let positivos = [];
+    
+    for(let i = 0; i < 5 ; i++){
+        numeros[i] = parseInt(prompt("Digite um número inteiro"));
+        
+        if(numeros[i] > 0){
+            positivos.push(numeros[i]);
+        }
+    }
+    
+    alert("Números positivos: " + positivos.join(", "));
+
+
+</script>

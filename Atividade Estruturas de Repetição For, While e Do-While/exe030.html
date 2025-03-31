@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    //30.Escreva um programa que gere um número aleatório entre 1 e 100.
+    // ● O usuário tem 7 tentativas para adivinhar o número.
+    // ● A cada tentativa, o programa deve informar se o número digitado é maior ou menor que o número gerado.
+    // ● Se o número for acertado antes de acabar as tentativas, exiba uma mensagem de sucesso.
+
+    // Requisitos:
+    // ● Use while para controlar as tentativas.
+
+    let numeroGerado = Math.floor(Math.random() * 100) + 1;
+    let numeroUsuario;
+    let tentativas = 0;
+
+    while (tentativas < 7) {
+        numeroUsuario = Number(prompt("Tente adivinhar um número entre 1 e 100:"));
+        tentativas++;
+        
+        if (numeroUsuario === numeroGerado) {
+            alert("🎉 Parabéns! Você acertou o número: " + numeroGerado);
+            break;
+        } else if (numeroUsuario < numeroGerado) {
+            alert("Você digitou um número menor do que o gerado. Tente novamente.");
+        } else {
+            alert("Você digitou um número maior do que o gerado. Tente novamente.");
+
+        }
+    }
+    if (tentativas === 7) {
+        alert("❌ Você não conseguiu acertar o número. O número era: " + numeroGerado);
+    }
+
+
+
+
+    </script>
+</body>
+</html>

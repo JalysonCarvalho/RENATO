@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<script>
+/* 10. Faça um programa que mostre o menu de opções a seguir, receba a opção do usuário e os dados necessários
+para executar cada operação.
+Menu de opções:
+ Somar dois números
+ Multiplicar dois números
+ Exponencial de um número por outro*/
+
+ // Função para mostrar o menu e executar a operação escolhida
+ function menu() {
+    const opcao = Number(prompt(
+      "Escolha uma das opções:\n" +
+      "1. Somar dois números\n" +
+      "2. Multiplicar dois números\n" +
+      "3. Exponencial de um número por outro"
+    ));
+
+    let resultado;
+
+    // Verifica a opção escolhida
+    if (opcao === 1) {
+      // Somar dois números
+      const num1 = Number(prompt("Digite o primeiro número:"));
+      const num2 = Number(prompt("Digite o segundo número:"));
+      resultado = num1 + num2;
+      alert(`Resultado da soma: ${resultado}`);
+    } else if (opcao === 2) {
+      // Multiplicar dois números
+      const num1 = Number(prompt("Digite o primeiro número:"));
+      const num2 = Number(prompt("Digite o segundo número:"));
+      resultado = num1 * num2;
+      alert(`Resultado da multiplicação: ${resultado}`);
+    } else if (opcao === 3) {
+      // Exponencial de um número por outro
+      const base = Number(prompt("Digite a base do número:"));
+      const expoente = Number(prompt("Digite o expoente:"));
+      resultado = Math.pow(base, expoente);
+      alert(`Resultado da exponenciação: ${resultado}`);
+    } else {
+      alert("Opção inválida.");
+    }
+  }
+
+  // Chama a função menu para exibir o menu e processar a escolha
+  menu();
+</script>

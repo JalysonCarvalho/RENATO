@@ -1,0 +1,21 @@
+<script>
+    /*47. Escreva um programa que leia uma letra e mostre se ela é vogal ou consoante.*/
+    
+    function verificarVogalOuConsoante() {
+        // Solicita ao usuário uma letra
+        let letra = prompt("Digite uma letra:").toLowerCase();
+    
+        // Verifica se a letra é uma vogal ou consoante
+        if (letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u") {
+            alert("A letra " + letra + " é uma vogal.");
+        } else if (letra >= "a" && letra <= "z") {
+            alert("A letra " + letra + " é uma consoante.");
+        } else {
+            alert("Por favor, digite uma letra válida.");
+        }
+    }
+    
+    // Chama a função para executar o programa
+    verificarVogalOuConsoante();
+    </script>
+    

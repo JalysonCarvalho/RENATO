@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<script>
+    /*29. Converter um inteiro informado menor que 32 para sua representação em binário*/
+    
+    //Solicita ao usuário um número inteiro menor que 32
+    const numero = Number(prompt("Digite um número inteiro menor que 32:"));
+
+    // Verifica se o número é válido e menor que 32
+    if (numero >= 0 && numero < 32 && Number.isInteger(numero)) {
+        // Converte o número para binário usando o método .toString(2)
+        const binario = numero.toString(2);
+
+        // Exibe o resultado
+        alert(`A representação binária de ${numero} é: ${binario}`);
+    } else {
+        // Mensagem de erro caso o número seja inválido ou maior ou igual a 32
+        alert("Por favor, insira um número inteiro menor que 32.");
+    }
+
+
+</script>

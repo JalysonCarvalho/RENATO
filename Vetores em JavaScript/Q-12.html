@@ -1,0 +1,41 @@
+<script>
+    /*12. Faça um programa que carregue três vetores com dez posições cada um.
+    O primeiro vetor com os nomes de dez produtos. O segundo vetor com os 
+    códigos dos dez produtos e o terceiro vetor com os preços dos produtos. 
+    Mostre um relatório apenas com o nome, o código, o preço e o novo preço dos 
+    produtos que sofrerão aumento. Sabe-se que os produtos que sofrerão aumento 
+    são aqueles que possuem código par ou preço superior a R$ 1.000,00. 
+    Sabe-se ainda que se o produto satisfaz as duas condições acima (código e preço), 
+    o aumento de preço será de 20%, se satisfaz apenas a condição de código, 
+    o aumento será de 15%, se satisfaz apenas a condição de preço, o aumento será de 10%.*/
+    
+    function aplicarAumento() {
+        const produtos = ["Produto A", "Produto B", "Produto C", "Produto D", "Produto E", "Produto F", "Produto G", "Produto H", "Produto I", "Produto J"];
+        const codigos = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110];
+        const precos = [500, 1200, 250, 1500, 900, 1300, 800, 950, 2000, 1100];
+    
+        // Loop para verificar quais produtos terão aumento
+        for (let i = 0; i < 10; i++) {
+            let aumento = 0;
+    
+            // Verificar as condições para aumento
+            if (codigos[i] % 2 === 0 && precos[i] > 1000) {
+                aumento = 0.20; // 20% de aumento
+            } else if (codigos[i] % 2 === 0) {
+                aumento = 0.15; // 15% de aumento
+            } else if (precos[i] > 1000) {
+                aumento = 0.10; // 10% de aumento
+            }
+    
+            // Se o produto tiver aumento, calcule o novo preço e exiba o relatório
+            if (aumento > 0) {
+                const novoPreco = precos[i] * (1 + aumento);
+                alert(`Produto: ${produtos[i]}\nCódigo: ${codigos[i]}\nPreço: R$ ${precos[i].toFixed(2)}\nNovo Preço: R$ ${novoPreco.toFixed(2)}\n`);
+            }
+        }
+    }
+    
+    // Chama a função para aplicar o aumento e mostrar o relatório
+    aplicarAumento();
+    </script>
+    

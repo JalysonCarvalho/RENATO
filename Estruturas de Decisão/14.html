@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+<script>
+/* 14 Elaborar um programa para ler um número de 1 a 12 e informar o trimestre correspondente, sendo
+Jan/Fev/Mar o primeiro trimestre. Se for um número incorreto, mostrar mensagem de erro.*/
+
+// Recebe o número do mês (1 a 12)
+const mes = Number(prompt("Digite um número de 1 a 12 para saber o trimestre correspondente:"));
+
+// Define o trimestre com base no número do mês
+let trimestre;
+
+switch (mes) {
+  case 1:
+  case 2:
+  case 3:
+    trimestre = "Primeiro Trimestre (Jan, Fev, Mar)";
+    break;
+  case 4:
+  case 5:
+  case 6:
+    trimestre = "Segundo Trimestre (Abr, Mai, Jun)";
+    break;
+  case 7:
+  case 8:
+  case 9:
+    trimestre = "Terceiro Trimestre (Jul, Ago, Set)";
+    break;
+  case 10:
+  case 11:
+  case 12:
+    trimestre = "Quarto Trimestre (Out, Nov, Dez)";
+    break;
+  default:
+    trimestre = "Erro: número inválido. Digite um número entre 1 e 12.";
+    break;
+}
+
+// Exibe o resultado
+alert(trimestre);
+
+</script>

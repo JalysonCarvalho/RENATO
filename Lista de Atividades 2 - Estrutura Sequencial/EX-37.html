@@ -1,0 +1,30 @@
+<script>
+    /*37. Escreva um programa que permute o valor de duas variáveis inteiras.*/
+    
+    function permutarValores() {
+        // Solicita ao usuário dois valores inteiros
+        let a = Number(prompt("Digite o primeiro número inteiro (A):"));
+        let b = Number(prompt("Digite o segundo número inteiro (B):"));
+    
+        // Verifica se os valores são inteiros e maiores que zero
+        if (a <= 0 || b <= 0) {
+            alert("Por favor, insira valores inteiros válidos.");
+            return;
+        }
+    
+        // Exibe os valores antes da troca
+        alert("Antes da permutação:\nA = " + a + "\nB = " + b);
+    
+        // Realiza a permutação dos valores
+        let temp = a;
+        a = b;
+        b = temp;
+    
+        // Exibe os valores após a troca
+        alert("Depois da permutação:\nA = " + a + "\nB = " + b);
+    }
+    
+    // Chama a função para permutar os valores
+    permutarValores();
+    </script>
+    

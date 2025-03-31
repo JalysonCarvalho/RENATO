@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //33. Faça um programa que verifique e mostre os números entre 1.000 e 2.000 (inclusive) que, quando divididos por 11, produzam um resto igual a 5.
+    
+        let numeros = "";
+    
+        for (let num = 1000; num <= 2000; num++) {
+            if (num % 11 === 5) {
+                numeros += num + ", ";
+            }
+        }
+        alert("Os números entre 1000 e 2000 que divididos por 11 dão resto 5 são: " + numeros.slice(0, -2));
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //39. Uma empresa contratou 15 funcionários temporários. De acordo com o valor das vendas mensais, os funcionários adquirem pontos que determinarão seus salários ao final de cada mês. Sabe-se que esses funcionários trabalharão nos meses de novembro a janeiro do ano subsequente.
+        //Faça um programa que:
+        //a) Leia as pontuações nos três meses de cada funcionário;
+        //b) Calcule e mostre a pontuação geral de cada funcionário nos três meses;
+        //c) Calcule e mostre a média das pontuações de cada funcionário nos três meses;
+        //d) Determine e mostre a maior pontuação atingida entre os todos os funcionários nos três meses.
+    
+        // Array para armazenar os funcionários e suas pontuações
+        let funcionarios = [];
+        let maiorPontuacao = -1; // Variável para armazenar a maior pontuação
+    
+        // Coleta de dados para os 15 funcionários
+        for (let i = 1; i <= 15; i++) {
+            let funcionario = {
+                id: i,
+                novembro: parseInt(prompt(`Digite a pontuação do funcionário ${i} no mês de Novembro:`)),
+                dezembro: parseInt(prompt(`Digite a pontuação do funcionário ${i} no mês de Dezembro:`)),
+                janeiro: parseInt(prompt(`Digite a pontuação do funcionário ${i} no mês de Janeiro:`)),
+            };
+    
+            // Calcula a pontuação total e a média
+            funcionario.total = funcionario.novembro + funcionario.dezembro + funcionario.janeiro;
+            funcionario.media = funcionario.total / 3;
+    
+            // Verifica se a pontuação total é a maior registrada até agora
+            if (funcionario.total > maiorPontuacao) {
+                maiorPontuacao = funcionario.total;
+            }
+    
+            // Armazena o funcionário no array
+            funcionarios.push(funcionario);
+        }
+    
+        // Exibição dos resultados
+        funcionarios.forEach((func) => {
+            alert(
+                `Funcionário ${func.id}:\n` +
+                `Pontuação Total: ${func.total}\n` +
+                `Média: ${func.media.toFixed(2)}`
+            );
+        });
+    
+        alert(`A maior pontuação atingida entre todos os funcionários nos três meses foi: ${maiorPontuacao}`);
+    
+    
+    </script>
+</body>
+</html>

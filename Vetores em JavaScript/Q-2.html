@@ -1,0 +1,41 @@
+<script>
+    /*2. Faça um programa que carregue um vetor com sete números inteiros,
+    calcule e mostre:
+    (a) os números múltiplos de 2;
+    (b) os números múltiplos de 3;
+    (c) os números múltiplos de 2 e de 3.*/
+    
+    function processarMultiplos() {
+        // Declara o vetor com 7 elementos
+        const numeros = [];
+        let multiplosDe2 = [];
+        let multiplosDe3 = [];
+        let multiplosDe2e3 = [];
+    
+        // Preenche o vetor com valores fornecidos pelo usuário
+        for (let i = 0; i < 7; i++) {
+            let numero = parseInt(prompt("Digite o número para a posição " + (i + 1) + ":"));
+            numeros.push(numero);
+    
+            // Verifica se o número é múltiplo de 2, 3 ou ambos
+            if (numero % 2 === 0) {
+                multiplosDe2.push(numero);
+            }
+            if (numero % 3 === 0) {
+                multiplosDe3.push(numero);
+            }
+            if (numero % 2 === 0 && numero % 3 === 0) {
+                multiplosDe2e3.push(numero);
+            }
+        }
+    
+        // Exibe as informações solicitadas
+        alert("Números múltiplos de 2: " + multiplosDe2.join(", "));
+        alert("Números múltiplos de 3: " + multiplosDe3.join(", "));
+        alert("Números múltiplos de 2 e 3: " + multiplosDe2e3.join(", "));
+    }
+    
+    // Chama a função para processar os números
+    processarMultiplos();
+    </script>
+    

@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<script>
+/*32. Um circuito elétrico é composto de duas resistências R1 e R2 em paralelo, e ambas em
+sequência de uma resistência R3. Faça um algoritmo para calcular a resistência
+equivalente desse circuito.*/
+
+function calcularResistencia() {
+    // Solicita os valores das resistências ao usuário via prompt
+    const r1 = parseFloat(prompt("Digite o valor da resistência R1 (em ohms):"));
+    const r2 = parseFloat(prompt("Digite o valor da resistência R2 (em ohms):"));
+    const r3 = parseFloat(prompt("Digite o valor da resistência R3 (em ohms):"));
+
+    // Verifica se os valores inseridos são válidos (números positivos)
+    if (isNaN(r1) || isNaN(r2) || isNaN(r3) || r1 <= 0 || r2 <= 0 || r3 <= 0) {
+        alert("Por favor, insira valores válidos para as resistências.");
+        return; // Encerra a função caso os valores sejam inválidos
+    }
+
+    // Calcula a resistência equivalente das resistências R1 e R2 em paralelo
+    const resistenciaParalela = (r1 * r2) / (r1 + r2);
+
+    // Soma a resistência R3 (que está em série) para obter a resistência total
+    const resistenciaEquivalente = resistenciaParalela + r3;
+
+    // Exibe o resultado com um alert
+    alert("A resistência equivalente é: " + resistenciaEquivalente.toFixed(2) + " ohms");
+}
+
+// Chama a função para calcular a resistência equivalente
+calcularResistencia();
+</script>

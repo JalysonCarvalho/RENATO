@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<script>
+/* 12. Faça um programa que receba o salário de um funcionário, calcule e mostre o novo salário, acrescido de
+bonificação e de auxilio escola.
+
+Salário Bonificação
+Até R$ 500,00 5 % do salário
+Entre R$ 500,00 e R$
+1.200,00
+
+12 % do salário
+Acima de R$ 1.200,00 Sem bonificação
+Salário Auxilio escola
+Até R$ 600,00 R$ 150,00
+Mais que R$
+600,00
+
+R$ 100,00*/
+
+
+  // Recebe o salário do funcionário
+  const salario = Number(prompt("Digite o salário do funcionário:"));
+
+  let bonificacao = 0;
+  let auxilioEscola = 0;
+  let novoSalario = salario + bonificacao + auxilioEscola;
+
+  // Calcula a bonificação
+  if (salario <= 500) {
+    bonificacao = (salario * 5) / 100;
+  } else if (salario > 500 && salario <= 1200) {
+    bonificacao = (salario * 12) / 100;
+  } else {
+    bonificacao = 0; // Sem bonificação para salários acima de 1200
+  }
+
+  // Calcula o auxílio escola
+  if (salario <= 600) {
+    auxilioEscola = 150;
+  } else {
+    auxilioEscola = 100;
+  }
+
+  // Calcula o novo salário
+  novoSalario = salario + bonificacao + auxilioEscola;
+
+  // Exibe o resultado
+  alert(`Salário atual: R$ ${salario.toFixed(2)}\nBonificação: R$ ${bonificacao.toFixed(2)}\nAuxílio Escola: R$ ${auxilioEscola.toFixed(2)}\nNovo Salário: R$ ${novoSalario.toFixed(2)}`);
+
+
+</script>

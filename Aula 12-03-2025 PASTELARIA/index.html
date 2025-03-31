@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelaria Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Pastelaria Delivery</h1>
+    <p>Escolha seus produtos e finalize seu pedido!</p>
+</header>
+<div class="container" id="productContainer"></div>
+<div class="order-summary">
+    <h3>Resumo do Pedido</h3>
+    <div id="orderDetails"></div>
+    <hr>
+    <p class="total-price" id="totalPrice">Total: R$ 0,00</p>
+    <button id="startOrderButton" onclick="finalizarPedido()">Finalizar Pedido</button>
+    <button onclick="novoPedido()">Novo Pedido</button>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

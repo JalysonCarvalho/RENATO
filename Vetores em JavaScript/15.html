@@ -1,0 +1,19 @@
+<script>
+    /*15. Escreva um programa que declare um vetor de inteiros com tamanho 6 e preencha-o com os números de 1 a 6 em ordem 
+    decrescente. Em seguida, exiba apenas os elementos divisíveis por 3.*/
+    
+    function mostrarDivisiveisPorTres() {
+        // Vetor de números de 6 a 1 em ordem decrescente
+        const numeros = [6, 5, 4, 3, 2, 1];
+    
+        // Filtra os números divisíveis por 3 e os exibe
+        const divisiveisPorTres = numeros.filter(num => num % 3 === 0);
+        
+        // Exibe os números divisíveis por 3
+        alert("Os números divisíveis por 3 são: " + divisiveisPorTres.join(", "));
+    }
+    
+    // Chama a função para exibir os números divisíveis por 3
+    mostrarDivisiveisPorTres();
+    </script>
+    

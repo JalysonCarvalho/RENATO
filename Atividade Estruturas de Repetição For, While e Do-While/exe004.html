@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*4. Escreva um algoritmo que calcule a média aritmética das 3 notas dos alunos de uma
+classe.*/
+
+
+    // Inicializa a variável soma das notas e o contador
+    let somaNotas = 0;
+    let quantidadeNotas = 3;
+    let i = 0;
+
+    // Utiliza o do...while para coletar as 3 notas
+    do {
+        let nota = parseFloat(prompt("Digite uma nota:"));
+        somaNotas += nota;
+        i++;
+    } while (i < quantidadeNotas);
+
+    // Calcula a média das notas
+    let media = somaNotas / quantidadeNotas;
+
+    // Exibe o resultado
+    alert("A média das 3 notas é: " + media.toFixed(2));
+
+    </script>
+</body>
+</html>

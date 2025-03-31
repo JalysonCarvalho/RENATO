@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    //31. Escreva um programa que solicite ao usuário dois números inteiros, a e b. O programa deve exibir todos os números múltiplos de 5 entre a e b.
+    // Requisitos:
+    // a. Use for para iterar pelos números no intervalo.
+    // b. Use um laço aninhado para verificar se o número é primo.
+
+    // Solicita os dois números inteiros ao usuário
+let a = parseInt(prompt("Digite o primeiro número inteiro (a):"));
+let b = parseInt(prompt("Digite o segundo número inteiro (b):"));
+
+// Garante que a seja o menor número e b o maior
+if (a > b) {
+    [a, b] = [b, a];
+}
+
+let multiplosDe5 = [];
+
+// Itera pelos números no intervalo de a a b
+for (let i = a; i <= b; i++) {
+    if (i % 5 === 0) {
+        multiplosDe5.push(i); // Adiciona à lista de múltiplos de 5
+        let ehPrimo = true;
+
+        // Verifica se o número é primo
+        if (i <= 1) {
+            ehPrimo = false; // Números <= 1 não são primos
+        } else {
+            for (let j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j === 0) {
+                    ehPrimo = false;
+                    break;
+                }
+            }
+        }
+
+        // Exibe o número e se ele é primo ou não
+        if (ehPrimo) {
+            alert(`${i} é múltiplo de 5 e também é um número primo.`);
+        } else {
+            alert(`${i} é múltiplo de 5, mas não é um número primo.`);
+        }
+    }
+}
+
+// Exibe todos os múltiplos de 5 encontrados (opcional)
+if (multiplosDe5.length === 0) {
+    alert("Não há múltiplos de 5 no intervalo fornecido.");
+} else {
+    alert(`Múltiplos de 5 no intervalo de ${a} a ${b}: ${multiplosDe5.join(", ")}`);
+}
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelaria</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #resultado { margin-top: 20px; padding: 10px; border: 1px solid #000; display: inline-block; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <h2>Sistema de Pedidos - Pastelaria</h2>
+    <button onclick="iniciarPedido()">Fazer Pedido</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        // Lista de produtos e preços
+        let produtos = ["Pastel de Carne", "Pastel de Frango", "Pastel de Queijo", "Coxinha", "Empada de Frango", "Refrigerante"];
+        let precos = [6.00, 5.50, 5.00, 3.50, 4.00, 3.00];
+
+        // Array para armazenar os pedidos do cliente
+        let pedidos = [];
+
+        // Função para exibir o menu no console
+        function exibirMenu() {
+            let menuTexto = "===== MENU DA PASTELARIA =====\n";
+            for (let i = 0; i < produtos.length; i++) {
+                menuTexto += (i + 1) + " - " + produtos[i] + " - R$ " + precos[i] + "\n";
+            }
+            menuTexto += "==============================";
+            console.log(menuTexto);
+            return menuTexto;
+        }
+
+        // Função para registrar os pedidos do cliente
+        function registrarPedido() {
+            let menu = exibirMenu();
+            pedidos = []; // Limpa os pedidos anteriores
+
+            for (;;) {
+                let escolha = parseInt(prompt(menu + "\nEscolha um produto pelo número (ou 0 para finalizar):"));
+
+                if (escolha === 0) {
+                    console.log("Pedido finalizado!\n");
+                    break;
+                } else if (escolha < 1 || escolha > produtos.length || isNaN(escolha)) {
+                    alert("Escolha inválida! Digite um número válido.");
+                } else {
+                    let produtoEscolhido = produtos[escolha - 1];
+                    let quantidade = parseInt(prompt("Você escolheu: " + produtoEscolhido + "\nDigite a quantidade desejada:"));
+
+                    if (isNaN(quantidade) || quantidade <= 0) {
+                        alert("Quantidade inválida! Digite um número válido.");
+                    } else {
+                        pedidos.push([produtoEscolhido, precos[escolha - 1], quantidade]);
+                        console.log("✔ " + quantidade + "x " + produtoEscolhido + " adicionado ao pedido!");
+                    }
+                }
+            }
+        }
+
+        // Função para calcular o total da compra
+        function calcularTotal() {
+            let total = 0;
+            for (let i = 0; i < pedidos.length; i++) {
+                total += pedidos[i][1] * pedidos[i][2]; // Preço unitário * quantidade
+            }
+            return total;
+        }
+
+        // Função para aplicar a taxa opcional de 10%
+        function aplicarTaxa(total) {
+            let resposta = prompt("Deseja adicionar uma taxa de 10%? (S/N)").toUpperCase();
+            if (resposta === "S") {
+                return total * 1.1; // Adiciona 10% ao total
+            }
+            return total;
+        }
+
+        // Função para exibir a conta detalhada na tela e no console
+        function exibirConta(total) {
+            let resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = "<h3>Conta Detalhada</h3>";
+
+            console.log("\n======= CONTA DETALHADA =======");
+            for (let i = 0; i < pedidos.length; i++) {
+                let item = pedidos[i][2] + "x " + pedidos[i][0] + " - R$ " + pedidos[i][1] + " cada - Total: R$ " + (pedidos[i][1] * pedidos[i][2]);
+                console.log(item);
+                resultadoDiv.innerHTML += "<p>" + item + "</p>";
+            }
+            
+            console.log("------------------------------");
+            console.log("Total da compra: R$ " + total.toFixed(2));
+            console.log("==============================");
+            console.log("✅ Obrigado pela preferência!");
+
+            resultadoDiv.innerHTML += "<hr><p><strong>Total da compra: R$ " + total.toFixed(2) + "</strong></p>";
+            resultadoDiv.innerHTML += "<p>✅ Obrigado pela preferência!</p>";
+        }
+
+        // Função principal para iniciar o pedido
+        function iniciarPedido() {
+            console.clear(); // Limpa o console para uma nova execução
+            console.log("🛒 INICIANDO PEDIDO...");
+            registrarPedido(); // Registra os pedidos do cliente
+            
+            if (pedidos.length === 0) {
+                document.getElementById("resultado").innerHTML = "<p>Nenhum item foi selecionado. Pedido cancelado.</p>";
+                console.log("Nenhum item foi selecionado. Pedido cancelado.");
+                return;
+            }
+
+            let total = calcularTotal(); // Calcula o total da compra
+            total = aplicarTaxa(total); // Aplica a taxa opcional de 10%
+            exibirConta(total); // Exibe a conta detalhada na tela e no console
+        }
+    </script>
+
+</body>
+</html>

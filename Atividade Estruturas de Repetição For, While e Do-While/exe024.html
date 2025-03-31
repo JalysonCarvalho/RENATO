@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*24. Escreva um programa que leia 10 números inteiros e exiba: 
+a. A soma de todos os números. 
+b. A quantidade de números pares. 
+Exemplo de entrada: 
+5, 8, 13, 6, 4, 11, 18, 7, 2, 10 
+Saída esperada:
+Soma: 84 
+Quantidade de pares: 5 
+*/
+
+let soma = 0;           // Variável para armazenar a soma dos números
+let quantidadePares = 0; // Variável para contar a quantidade de números pares
+
+// Loop para ler 10 números inteiros
+for (let i = 1; i <= 10; i++) {
+    let numero = Number(prompt("Informe o " + i + "º número:"));
+    
+    soma += numero; // Adiciona o número à soma total
+
+    // Verifica se o número é par
+    if (numero % 2 === 0) {
+        quantidadePares++; // Incrementa a quantidade de números pares
+    }
+}
+
+// Exibe os resultados em um único alert
+alert("Soma: " + soma + "\nQuantidade de pares: " + quantidadePares);
+    </script>
+</body>
+</html>

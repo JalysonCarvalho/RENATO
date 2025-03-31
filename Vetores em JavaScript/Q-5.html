@@ -1,0 +1,42 @@
+<script>
+    /*5. Faça um programa que receba o nome de oito clientes e armazene-os
+    em um vetor. Em um segundo vetor armazene a quantidade de fitas
+    locadas em 1999 por um dos oito clientes. Sabe-se que para cada dez
+    locações o cliente tem direito a uma locação grátis. Faça um programa
+    que mostre o nome de todos os clientes com a quantidade de locações
+    grátis a que ele tem direito.*/
+    
+    function calcularLocacoesGratis() {
+        const clientes = [];
+        const locacoes = [];
+        const locacoesGratis = [];
+    
+        // Recebe os nomes dos clientes e a quantidade de fitas locadas em 1999
+        for (let i = 0; i < 8; i++) {
+            const nome = prompt("Digite o nome do cliente " + (i + 1) + ":");
+            clientes.push(nome);
+            
+            let quantidadeLocacoes = prompt("Quantas fitas " + nome + " locou em 1999?");
+            
+            // Valida a entrada para garantir que a quantidade seja um número válido
+            while (quantidadeLocacoes === "" || parseInt(quantidadeLocacoes) <= 0) {
+                quantidadeLocacoes = prompt("Por favor, insira uma quantidade válida de locações para " + nome + ":");
+            }
+            
+            locacoes.push(Number(quantidadeLocacoes));
+            
+            // Calcula a quantidade de locações grátis (1 para cada 10 locações)
+            const gratis = Math.floor(quantidadeLocacoes / 10);
+            locacoesGratis.push(gratis);
+        }
+    
+        // Exibe os nomes dos clientes e suas locações grátis
+        for (let i = 0; i < 8; i++) {
+            alert(clientes[i] + " tem direito a " + locacoesGratis[i] + " locação(ões) grátis.");
+        }
+    }
+    
+    // Chama a função para calcular as locações grátis
+    calcularLocacoesGratis();
+    </script>
+    

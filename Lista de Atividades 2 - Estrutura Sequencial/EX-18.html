@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<script>
+/*18. Faça um programa que receba o preço de um produto, calcule e mostre o novo preço,
+sabendo-se que este sofreu um desconto de 10%.*/
+
+const precoOriginal = Number(prompt("Digite o preço do produto:"));
+
+if (precoOriginal > 0) {
+    const desconto = 0.10;  // Desconto de 10%
+    const novoPreco = precoOriginal * (1 - desconto);
+
+    alert(`O preço original é: R$ ${precoOriginal.toFixed(2)}`);
+    alert(`O novo preço com desconto de 10% é: R$ ${novoPreco.toFixed(2)}`);
+} else {
+    alert("Por favor, digite um preço válido.");
+}
+
+</script>

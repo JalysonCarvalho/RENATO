@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*17. Escreva um algoritmo que leia 50 valores e encontre o maior e o menor deles. Mostre o
+resultado.*/
+// Inicializando variáveis para o maior e o menor número
+let maior = -Infinity;
+let menor = Infinity;
+let i = 0;
+
+while (i < 50) {
+    let valor = Number(prompt("Digite o " + (i + 1) + "º valor:"));
+    // Verificando se o valor é maior que o atual maior
+    if (valor > maior) {
+        maior = valor;
+    }
+    // Verificando se o valor é menor que o atual menor
+    if (valor < menor) {
+        menor = valor;
+    }
+    i++;
+}
+alert("O maior valor é: " + maior + "\nO menor valor é: " + menor);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<script>
+/*2. Escreva um programa em JavaScript que declare um vetor de inteiros
+com tamanho 5 e preencha-o com valores fornecidos pelo usuario. Em
+seguida, exiba apenas os elementos  ́ımpares do vetor.*/
+
+
+let vetor = [];
+
+for (let i = 0; i < 5; i++) {
+    vetor[i] = parseInt(prompt(`Digite o ${i + 1}º número: `));
+}
+
+let mensagem = "Elementos ímpares do vetor:\n";
+
+for (let i = 0; i < vetor.length; i++) {
+    if (vetor[i] % 2 !== 0) {
+        mensagem += vetor[i] + "\n";
+    }
+}
+
+alert(mensagem);
+
+
+
+</script>

@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<script>
+/*12. Faça um programa que receba o salário base de um funcionário, calcule e mostre o salário a
+receber, sabendo-se que o funcionário tem gratificação de R$ 50,00 e paga imposto de 10%
+sobre o salário base.*/
+
+// Recebe o salário base do funcionário
+const salarioBase = Number(prompt("Digite o salário base do funcionário:"));
+
+// Gratificação fixa de R$ 50,00
+const gratificacao = 50;
+
+// Calcula o imposto de 10% sobre o salário base
+const imposto = salarioBase * 0.10;
+
+// Calcula o salário a receber (salário base + gratificação - imposto)
+const salarioReceber = salarioBase + gratificacao - imposto;
+
+// Exibe o resultado
+alert(`O salário a receber é: R$ ${salarioReceber.toFixed(2)}`);
+</script>

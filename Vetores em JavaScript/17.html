@@ -1,0 +1,28 @@
+<script>
+    /*17. Escreva um programa que declare um vetor de inteiros com tamanho 7 e preencha-o com valores fornecidos pelo usuário. 
+    Em seguida, encontre e exiba a soma dos elementos que estão nas posições ímpares do vetor (índices ímpares).*/
+    
+    function somaPosicoesImpares() {
+        // Declara o vetor de inteiros com tamanho 7
+        const numeros = [];
+    
+        // Preenche o vetor com os valores fornecidos pelo usuário
+        for (let i = 0; i < 7; i++) {
+            let valor = prompt("Digite o " + (i + 1) + "º número:");
+            numeros.push(parseInt(valor)); // Converte para inteiro e adiciona no vetor
+        }
+    
+        // Calcula a soma dos elementos nas posições ímpares
+        let soma = 0;
+        for (let i = 1; i < 7; i += 2) { // Começa no índice 1 e vai de 2 em 2 (índices ímpares)
+            soma += numeros[i];
+        }
+    
+        // Exibe o resultado da soma
+        alert("A soma dos elementos nas posições ímpares é: " + soma);
+    }
+    
+    // Chama a função para calcular a soma
+    somaPosicoesImpares();
+    </script>
+    

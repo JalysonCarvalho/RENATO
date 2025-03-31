@@ -1,0 +1,52 @@
+<script>
+    /*49. Um posto está vendendo combustíveis com a seguinte tabela de descontos: No Álcool :
+    Até 25 litros, desconto de 2% por litro, Acima 25 litros,desconto de 4% por litro. 
+    Na Gasolina : Até 25 litros, desconto de 3% por litro, Acima 25 litros,desconto de 5% por litro. 
+    Escreva um algoritmo que leia o número de litros vendidos e o tipo de combustível 
+    (codificado da seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser 
+    pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,70 e o preço do litro 
+    do álcool é R$ 1,90.*/
+    
+    function calcularValorPago() {
+        // Solicita o tipo de combustível e a quantidade de litros
+        let tipoCombustivel = prompt("Digite o tipo de combustível (A para Álcool, G para Gasolina):").toUpperCase();
+        let litros = Number(prompt("Digite a quantidade de litros:"));
+    
+        // Verifica se a quantidade de litros é válida
+        if (litros <= 0) {
+            alert("Por favor, insira uma quantidade válida de litros.");
+            return;
+        }
+    
+        let valorFinal;
+    
+        // Preços por litro
+        const precoAlcool = 1.90;
+        const precoGasolina = 2.70;
+    
+        // Calcula o valor a ser pago com base no tipo de combustível e na quantidade de litros
+        if (tipoCombustivel === "A") { // Álcool
+            if (litros <= 25) {
+                valorFinal = litros * precoAlcool * 0.98; // 2% de desconto
+            } else {
+                valorFinal = litros * precoAlcool * 0.96; // 4% de desconto
+            }
+        } else if (tipoCombustivel === "G") { // Gasolina
+            if (litros <= 25) {
+                valorFinal = litros * precoGasolina * 0.97; // 3% de desconto
+            } else {
+                valorFinal = litros * precoGasolina * 0.95; // 5% de desconto
+            }
+        } else {
+            alert("Tipo de combustível inválido! Use 'A' para Álcool ou 'G' para Gasolina.");
+            return;
+        }
+    
+        // Exibe o valor final a ser pago
+        alert("O valor a ser pago é: R$ " + valorFinal.toFixed(2));
+    }
+    
+    // Chama a função para executar o programa
+    calcularValorPago();
+    </script>
+    

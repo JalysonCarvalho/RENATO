@@ -1,0 +1,46 @@
+<script>
+    /*18. Faça um programa que preencha um vetor com seis elementos numéricos inteiros. 
+    Calcule e mostre:
+    • Todos os números pares;
+    • A quantidade de números pares;
+    • Todos os números ímpares;
+    • A quantidade de números ímpares.*/
+    
+    function analisarNumeros() {
+        // Declara o vetor de inteiros com tamanho 6
+        const numeros = [];
+    
+        // Preenche o vetor com os valores fornecidos pelo usuário
+        for (let i = 0; i < 6; i++) {
+            let valor = prompt("Digite o " + (i + 1) + "º número:");
+            numeros.push(parseInt(valor)); // Converte para inteiro e adiciona no vetor
+        }
+    
+        // Inicializa variáveis para armazenar pares e ímpares
+        let pares = [];
+        let impares = [];
+        let qtdPares = 0;
+        let qtdImpares = 0;
+    
+        // Percorre o vetor e separa os números pares e ímpares
+        for (let i = 0; i < numeros.length; i++) {
+            if (numeros[i] % 2 === 0) {
+                pares.push(numeros[i]);
+                qtdPares++;
+            } else {
+                impares.push(numeros[i]);
+                qtdImpares++;
+            }
+        }
+    
+        // Exibe os resultados
+        alert("Números pares: " + pares.join(", "));
+        alert("Quantidade de números pares: " + qtdPares);
+        alert("Números ímpares: " + impares.join(", "));
+        alert("Quantidade de números ímpares: " + qtdImpares);
+    }
+    
+    // Chama a função para realizar a análise
+    analisarNumeros();
+    </script>
+    

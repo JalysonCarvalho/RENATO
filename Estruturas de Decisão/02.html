@@ -1,0 +1,57 @@
+<meta charset="utf-8">
+<script>
+/*2. A nota final de um estudante é calculada a partir de 3 notas atribuídas, respectivamente, a um trabalho de
+laboratório, a uma avaliação semestral e a um exame final. A média das três notas mencionadas obedece aos
+pesos a seguir:
+
+NOTA PESO
+TRABALHO DE LABORATÓRIO 2
+AVALIAÇÃO SEMESTRAL 3
+EXAME FINAL 5
+
+Faça um programa que receba as três notas, calcule e mostre a média ponderada e o conceito que se segue
+a tabela:
+
+Média ponderada Conceito
+8,0 ------- 10,0 A
+7,0 --------8,0 B
+6,0 --------7,0 C
+5,0 --------6,0 D
+0,0 -------- 5,0 E*/
+
+ // Recebe as três notas do usuário
+ const notaLaboratorio = Number(prompt("Digite a nota do Trabalho de Laboratório (peso 2):"));
+  const notaSemestral = Number(prompt("Digite a nota da Avaliação Semestral (peso 3):"));
+  const notaExameFinal = Number(prompt("Digite a nota do Exame Final (peso 5):"));
+
+  // Define os pesos
+  const pesoLaboratorio = 2;
+  const pesoSemestral = 3;
+  const pesoExameFinal = 5;
+
+  // Calcula a média ponderada
+  const somaPesos = pesoLaboratorio + pesoSemestral + pesoExameFinal;
+  const mediaPonderada = (
+    (notaLaboratorio * pesoLaboratorio) +
+    (notaSemestral * pesoSemestral) +
+    (notaExameFinal * pesoExameFinal)
+  ) / somaPesos;
+
+  // Determina o conceito com base na média
+  let conceito;
+  if (mediaPonderada >= 8) {
+    conceito = "A";
+  } else if (mediaPonderada >= 7) {
+    conceito = "B";
+  } else if (mediaPonderada >= 6) {
+    conceito = "C";
+  } else if (mediaPonderada >= 5) {
+    conceito = "D";
+  } else {
+    conceito = "E";
+  }
+
+  // Exibe os resultados
+  alert(`A média ponderada é: ${mediaPonderada.toFixed(2)}`);
+  alert(`O conceito do estudante é: ${conceito}`);
+</script>

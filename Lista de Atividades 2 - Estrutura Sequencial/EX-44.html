@@ -1,0 +1,22 @@
+<script>
+    /*44. Escreva um programa que leia 3 valores e escreva a soma dos 2 maiores.*/
+    
+    function somaDosDoisMaiores() {
+        // Solicita ao usuário três valores
+        let valor1 = Number(prompt("Digite o primeiro valor:"));
+        let valor2 = Number(prompt("Digite o segundo valor:"));
+        let valor3 = Number(prompt("Digite o terceiro valor:"));
+    
+        // Ordena os valores em ordem decrescente
+        let maior = Math.max(valor1, valor2, valor3);
+        let menor = Math.min(valor1, valor2, valor3);
+        let soma = valor1 + valor2 + valor3 - menor; // A soma dos dois maiores é a soma total menos o menor valor
+    
+        // Exibe o resultado
+        alert("A soma dos dois maiores valores é: " + soma);
+    }
+    
+    // Chama a função para executar o programa
+    somaDosDoisMaiores();
+    </script>
+    

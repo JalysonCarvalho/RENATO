@@ -1,0 +1,30 @@
+<script>
+    /*50. Leia a razão de uma PA (Progressão Aritmética) e o seu primeiro e último termos e
+    informe a soma dos elementos dessa PA.*/
+    
+    function calcularSomaPA() {
+        // Solicita ao usuário o primeiro termo, último termo e a razão da PA
+        const primeiroTermo = Number(prompt("Digite o primeiro termo da PA:"));
+        const ultimoTermo = Number(prompt("Digite o último termo da PA:"));
+        const razao = Number(prompt("Digite a razão da PA:"));
+    
+        // Verifica se os valores inseridos são válidos (maiores que 0)
+        if (primeiroTermo <= 0 || ultimoTermo <= 0 || razao <= 0) {
+            alert("Por favor, insira valores válidos para os termos e a razão.");
+            return;
+        }
+    
+        // Calcula o número de termos da PA
+        const numTermos = ((ultimoTermo - primeiroTermo) / razao) + 1;
+    
+        // Calcula a soma da PA usando a fórmula: S = n / 2 * (a1 + an)
+        const soma = (numTermos / 2) * (primeiroTermo + ultimoTermo);
+    
+        // Exibe a soma dos elementos da PA
+        alert("A soma dos elementos da PA é: " + soma);
+    }
+    
+    // Chama a função para executar o programa
+    calcularSomaPA();
+    </script>
+    

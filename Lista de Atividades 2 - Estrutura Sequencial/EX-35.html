@@ -1,0 +1,25 @@
+
+<script>/*35. Escreva um programa para gerar o invertido de um número com três algarismos
+(exemplo: o invertido de 498 é 894).*/
+
+// Solicita ao usuário um número de três algarismos
+const numero = Number(prompt("Digite um número de três algarismos:"));
+
+// Verifica se o número está no intervalo válido (100 a 999)
+if (numero < 100 || numero > 999) {
+    alert("Por favor, insira um número de três algarismos.");
+} else {
+    // Separa os algarismos do número
+    const centena = Math.floor(numero / 100); // Primeiro dígito
+    const dezena = Math.floor((numero % 100) / 10); // Segundo dígito
+    const unidade = numero % 10; // Terceiro dígito
+
+    // Reorganiza os algarismos para formar o número invertido
+    const numeroInvertido = (unidade * 100) + (dezena * 10) + centena;
+
+    // Exibe o resultado com um alert
+    alert("Número invertido: " + numeroInvertido);
+}
+
+
+</script>

@@ -1,0 +1,33 @@
+<script>
+    /*19. Faça um programa que leia um vetor inteiro de 30 posições e crie um 
+    segundo vetor, substituindo os valores nulos por 1. Mostre os dois vetores.*/
+    
+    function substituirValoresNulos() {
+        // Declara o vetor de 30 posições e preenche com valores fornecidos pelo usuário
+        const vetorOriginal = [];
+        const vetorModificado = [];
+        
+        // Preenche o vetorOriginal com 30 valores fornecidos pelo usuário
+        for (let i = 0; i < 30; i++) {
+            let valor = prompt("Digite o valor para a posição " + (i + 1) + ":");
+            
+            // Adiciona o valor no vetor original
+            vetorOriginal.push(valor);
+            
+            // Se o valor for nulo, substitui por 1
+            if (valor === "" || valor === null) {
+                vetorModificado.push(1);
+            } else {
+                vetorModificado.push(valor);
+            }
+        }
+    
+        // Exibe os dois vetores
+        alert("Vetor Original: " + vetorOriginal.join(", "));
+        alert("Vetor Modificado (valores nulos substituídos por 1): " + vetorModificado.join(", "));
+    }
+    
+    // Chama a função para realizar a modificação e exibir os vetores
+    substituirValoresNulos();
+    </script>
+    

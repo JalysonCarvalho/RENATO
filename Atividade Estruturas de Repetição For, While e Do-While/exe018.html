@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*18. A prefeitura de uma cidade fez uma pesquisa entre seus habitantes, coletando dados
+sobre o salário e número de filhos. A prefeitura deseja saber:
+a. média do salário da população;
+b. média do número de filhos;
+c. maior salário;
+d. percentual de pessoas com salário até R$100,00.
+O final da leitura de dados se dará com a entrada de um salário negativo.*/
+
+let totalSalarios = 0;
+let totalFilhos = 0;
+let maiorSalario = -Infinity;
+let totalPessoas = 0;
+let pessoasSalarioAte100 = 0;
+
+while (true) {
+    let salario = Number(prompt("Informe o salário (ou um valor negativo para encerrar):"));
+
+    // Condição para finalizar a leitura dos dados
+    if (salario < 0) {
+        break;
+    }
+
+    let filhos = Number(prompt("Informe o número de filhos:"));
+
+    // Atualizando as variáveis
+    totalSalarios += salario;
+    totalFilhos += filhos;
+    totalPessoas++;
+
+    if (salario > maiorSalario) {
+        maiorSalario = salario;
+    }
+
+    if (salario <= 100) {
+        pessoasSalarioAte100++;
+    }
+}
+
+// Calculando as médias
+let mediaSalarios = totalSalarios / totalPessoas;
+let mediaFilhos = totalFilhos / totalPessoas;
+let percentualSalarioAte100 = (pessoasSalarioAte100 / totalPessoas) * 100;
+
+// Exibindo os resultados
+alert("Média do salário: R$ " + mediaSalarios.toFixed(2));
+alert("Média do número de filhos: " + mediaFilhos.toFixed(2));
+alert("Maior salário: R$ " + maiorSalario.toFixed(2));
+alert("Percentual de pessoas com salário até R$100,00: " + percentualSalarioAte100.toFixed(2) + "%");
+
+    </script>
+</body>
+</html>

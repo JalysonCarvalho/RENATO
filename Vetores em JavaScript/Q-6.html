@@ -1,0 +1,33 @@
+<script>
+    /*6. Faça um programa que leia dois vetores (A e B) de cinco posições de números inteiros. 
+    O programa deve, então, subtrair o segundo elemento de A do último de B, acumulando o valor, 
+    subtrair o segundo elemento de A do penúltimo de B, acumulando o valor e assim por diante. 
+    Mostre o resultado da soma de todas as subtrações.*/
+    
+    function subtrairVetores() {
+        // Declara os dois vetores A e B
+        const A = [];
+        const B = [];
+    
+        // Preenche os vetores com valores fornecidos pelo usuário
+        for (let i = 0; i < 5; i++) {
+            A.push(Number(prompt("Digite o número para a posição " + (i + 1) + " do vetor A:")));
+            B.push(Number(prompt("Digite o número para a posição " + (i + 1) + " do vetor B:")));
+        }
+    
+        // Variável para acumular o resultado das subtrações
+        let somaSubtracoes = 0;
+    
+        // Realiza as subtrações conforme o enunciado
+        for (let i = 0; i < 5; i++) {
+            somaSubtracoes += A[i] - B[4 - i];  // Subtrai o elemento de A do elemento correspondente de B
+        }
+    
+        // Exibe o resultado
+        alert("O resultado da soma de todas as subtrações é: " + somaSubtracoes);
+    }
+    
+    // Chama a função para realizar as operações
+    subtrairVetores();
+    </script>
+    

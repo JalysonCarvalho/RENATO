@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*27. Implemente um programa que simule um carrinho de compras. O programa deve:
+a. Mostrar uma lista de produtos com preços.
+b. Permitir ao usuário adicionar produtos ao carrinho.
+c. Exibir o total da compra e a quantidade de itens ao final.*/
+
+// Lista de produtos e seus preços
+const produtos = [
+    { nome: "Maçã", preco: 2.00 },
+    { nome: "Banana", preco: 1.50 },
+    { nome: "Laranja", preco: 3.00 }
+];
+
+// Carrinho de compras
+let total = 0;
+let quantidadeItens = 0;
+let escolha;
+
+// Loop do-while para adicionar produtos ao carrinho
+do {
+    // Exibe a lista de produtos
+    escolha = prompt("Produtos disponíveis:\n1. Maçã - R$ 2,00\n2. Banana - R$ 1,50\n3. Laranja - R$ 3,00\nDigite o número do produto que deseja adicionar ao carrinho (ou 0 para finalizar):");
+
+    // Converte a escolha para número
+    escolha = Number(escolha);
+
+    // Verifica a escolha
+    if (escolha === 1) {
+        total += produtos[0].preco;
+        quantidadeItens++;
+        
+    } else if (escolha === 2) {
+        total += produtos[1].preco;
+        quantidadeItens++;
+        
+    } else if (escolha === 3) {
+        total += produtos[2].preco;
+        quantidadeItens++;
+        
+    } else if (escolha !== 0) {
+        
+    }
+
+} while (escolha !== 0);
+
+// Exibe o total da compra e a quantidade de itens
+alert("Total da compra: R$ " + total.toFixed(2) + "\nQuantidade de itens: " + quantidadeItens);
+
+    </script>
+</body>
+</html>

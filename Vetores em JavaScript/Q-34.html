@@ -1,0 +1,34 @@
+<script>
+    /*34. Faça um programa que leia dois vetores de dez posições e faça a multiplicação dos elementos de mesmo índice, 
+    colocando o resultado em um terceiro vetor. Mostre o vetor resultante.*/
+    
+    function multiplicarVetores() {
+        const vetorA = [];
+        const vetorB = [];
+        const vetorResultado = [];
+    
+        // Preenche o vetor A com 10 valores fornecidos pelo usuário
+        for (let i = 0; i < 10; i++) {
+            let numeroA = parseInt(prompt("Digite o número " + (i + 1) + " para o vetor A:"));
+            vetorA.push(numeroA);
+        }
+    
+        // Preenche o vetor B com 10 valores fornecidos pelo usuário
+        for (let i = 0; i < 10; i++) {
+            let numeroB = parseInt(prompt("Digite o número " + (i + 1) + " para o vetor B:"));
+            vetorB.push(numeroB);
+        }
+    
+        // Realiza a multiplicação dos elementos de mesmo índice
+        for (let i = 0; i < 10; i++) {
+            vetorResultado.push(vetorA[i] * vetorB[i]);
+        }
+    
+        // Exibe o vetor resultante
+        alert("Vetor resultante da multiplicação: " + vetorResultado.join(", "));
+    }
+    
+    // Chama a função para realizar a multiplicação
+    multiplicarVetores();
+    </script>
+    

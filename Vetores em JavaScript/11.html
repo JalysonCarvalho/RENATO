@@ -1,0 +1,30 @@
+<script>
+    /*11. Escreva um programa que declare um vetor de inteiros com tamanho 6 e
+    preencha-o com valores fornecidos pelo usuário. Em seguida, encontre
+    e exiba a soma dos elementos que estão nas posições pares do vetor
+    (índices pares).*/
+    
+    function somarElementosPosicoesPares() {
+        const vetor = [];
+        let soma = 0;
+    
+        // Preenche o vetor com valores fornecidos pelo usuário
+        for (let i = 0; i < 6; i++) {
+            vetor[i] = parseInt(prompt("Digite o valor para a posição " + i + ":"));
+        }
+    
+        // Soma os elementos nas posições pares
+        for (let i = 0; i < vetor.length; i++) {
+            if (i % 2 === 0) {  // Verifica se o índice é par
+                soma += vetor[i];
+            }
+        }
+    
+        // Exibe a soma dos elementos nas posições pares
+        alert("A soma dos elementos nas posições pares é: " + soma);
+    }
+    
+    // Chama a função para calcular e exibir a soma
+    somarElementosPosicoesPares();
+    </script>
+    

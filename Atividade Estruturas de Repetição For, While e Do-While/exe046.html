@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*46. Após cada registro, o programa deve perguntar ao usuário se deseja registrar outra
+entrega de leite. O loop de registro deve continuar enquanto o usuário escolher
+continuar (digitando 'S' ou 's') e enquanto houver espaço no tanque.
+Ao finalizar os registros, o programa deve exibir algumas estatísticas, incluindo a
+quantidade total de leite armazenada no tanque.
+Requisitos:
+- Utilize um loop `do-while` para permitir o registro de múltiplas entregas.
+- Impedir que a quantidade total de leite exceda a capacidade máxima do tanque.
+- Exiba mensagens apropriadas se o tanque estiver cheio.
+
+Observações:
+- Certifique-se de lidar corretamente com as entradas do usuário.
+- Utilize variáveis apropriadas para armazenar totais e valores individuais.
+- Organize o código de maneira clara e compreensível.
+- Considere validar a entrada do usuário para garantir que a quantidade de leite seja
+positiva e que o tanque não exceda sua capacidade.*/
+
+    
+        // Capacidade máxima do tanque
+    const capacidadeMaxima = 1000;
+    
+    // Variável para armazenar a quantidade atual de leite no tanque
+    let quantidadeAtual = 0;
+    
+    do {
+        // Solicita a quantidade de leite entregue pelo produtor
+        let quantidadeEntregue = parseFloat(
+            prompt(`Informe a quantidade de leite entregue hoje (em litros):\nQuantidade atual no tanque: ${quantidadeAtual} litros\nCapacidade máxima: ${capacidadeMaxima} litros`)
+        );
+    
+        // Verifica se o valor é válido (não negativo e numérico)
+        if (quantidadeEntregue < 0 || isNaN(quantidadeEntregue)) {
+            alert("Por favor, insira uma quantidade válida (número positivo).");
+            continue;
+        }
+    
+        // Verifica se o tanque tem capacidade para a entrega
+        if (quantidadeAtual + quantidadeEntregue > capacidadeMaxima) {
+            alert(`Entrega não aceita! O tanque não suporta mais ${quantidadeEntregue} litros.\nCapacidade restante: ${capacidadeMaxima - quantidadeAtual} litros.`);
+        } else {
+            // Adiciona a entrega ao tanque
+            quantidadeAtual += quantidadeEntregue;
+            alert(`Entrega registrada com sucesso!\nQuantidade total de leite no tanque: ${quantidadeAtual} litros.`);
+        }
+    
+        // Pergunta ao usuário se deseja registrar outra entrega
+        var continuar = prompt("Deseja registrar outra entrega de leite? (S/N):").toUpperCase();
+    
+        // Se o tanque estiver cheio, avisa o usuário e encerra o loop
+        if (quantidadeAtual === capacidadeMaxima) {
+            alert("Tanque de resfriamento cheio! Não é possível registrar mais leite.");
+            break;
+        }
+    
+    } while (continuar === "S");
+    
+    // Exibe as estatísticas finais
+    alert(`Registro finalizado!\nQuantidade total de leite armazenada no tanque: ${quantidadeAtual} litros.\nObrigado por utilizar o sistema!`);
+    
+    </script>
+</body>
+</html>

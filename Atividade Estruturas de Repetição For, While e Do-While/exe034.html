@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //34. Faça um programa que leia cinco grupos de quatro valores ( A, B, C, D) e mostre-os na ordem lida. Em seguida, mostre-os em ordem crescente e decrescente.
+    
+        let grupo1 = [10, 5, 8, 2];
+        let grupo2 = [15, 3, 7, 9];
+        let grupo3 = [6, 4, 12, 1];
+        let grupo4 = [11, 14, 13, 16];
+        let grupo5 = [20, 18, 17, 19];
+        
+        // Mostra os grupos lidos
+        alert("Grupo 1:"+grupo1);
+        alert("Grupo 2:"+grupo2);
+        alert("Grupo 3:"+grupo3);
+        alert("Grupo 4:"+grupo4);
+        alert("Grupo 5:"+grupo5);
+        
+        // Ordena os grupos em ordem crescente
+        grupo1.sort((a, b) => a - b);
+        grupo2.sort((a, b) => a - b);
+        grupo3.sort((a, b) => a - b);
+        grupo4.sort((a, b) => a - b);
+        grupo5.sort((a, b) => a - b);
+        
+        // Mostra os grupos ordenados em ordem crescente
+        alert("Grupo 1 em ordem crescente:"+grupo1);
+        alert("Grupo 2 em ordem crescente:"+grupo2);
+        alert("Grupo 3 em ordem crescente:"+grupo3);
+        alert("Grupo 4 em ordem crescente:"+grupo4);
+        alert("Grupo 5 em ordem crescente:"+grupo5);
+        
+        // Ordena os grupos em ordem decrescente
+        grupo1.reverse();
+        grupo2.reverse();
+        grupo3.reverse();
+        grupo4.reverse();
+        grupo5.reverse();
+        
+        // Mostra os grupos ordenados em ordem decrescente
+        alert("Grupo 1 em ordem decrescente:"+grupo1);
+        alert("Grupo 2 em ordem decrescente:"+grupo2);
+        alert("Grupo 3 em ordem decrescente:"+grupo3);
+        alert("Grupo 4 em ordem decrescente:"+grupo4);
+        alert("Grupo 5 em ordem decrescente:"+grupo5);
+    
+        
+        
+    
+        
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<script>
+/* 9. Faça um programa para que receba 3 números e mostre-os em ordem crescente. Suponha que o usuário
+digitará 3 números diferentes.*/
+
+ // Recebe os três números
+  const num1 = Number(prompt("Digite o primeiro número:"));
+  const num2 = Number(prompt("Digite o segundo número:"));
+  const num3 = Number(prompt("Digite o terceiro número:"));
+
+  // Ordena os números em ordem crescente
+  const numeros = [num1, num2, num3];
+  numeros.sort((a, b) => a - b);
+
+  // Exibe os números em ordem crescente
+  alert(`Os números em ordem crescente são: ${numeros[0]}, ${numeros[1]}, ${numeros[2]}`);
+</script>

@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<script>
+/* 5. Escreva um programa que receba a velocidade máxima em uma avenida e a velocidade com que um motorista
+estava dirigindo nela. Calcule a multa que o motorista vai receber, considerando que são pagos R$ 5,00 por
+cada km/h que estiver acima da velocidade permitida (considere apenas números inteiros). Se a velocidade
+do motorista estiver dentro do limite, o programa deve informar que não há multa.*/
+
+ // Recebe a velocidade máxima e a velocidade do motorista
+ const velocidadeMaxima = Number(prompt("Digite a velocidade máxima permitida (km/h):"));
+  const velocidadeMotorista = Number(prompt("Digite a velocidade do motorista (km/h):"));
+
+  // Calcula o excesso de velocidade
+  const excesso = velocidadeMotorista - velocidadeMaxima;
+
+  // Verifica e calcula a multa, se necessário
+  if (excesso > 0) {
+    const multa = excesso * 5;
+    alert(`Você ultrapassou o limite em ${excesso} km/h. Multa: R$ ${multa.toFixed(2)}`);
+  } else {
+    alert("Você está dentro do limite de velocidade. Não há multa.");
+  }
+</script>

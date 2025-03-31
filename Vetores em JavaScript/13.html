@@ -1,0 +1,25 @@
+<script>
+    /*13. Escreva um programa que declare um vetor de números reais com tamanho 6 e preencha-o com valores fornecidos pelo usuário. 
+    Em seguida, calcule e exiba a média dos elementos do vetor.*/
+    
+    function calcularMedia() {
+        const vetor = [];
+        let soma = 0;
+    
+        // Preenche o vetor com valores fornecidos pelo usuário
+        for (let i = 0; i < 6; i++) {
+            vetor[i] = parseFloat(prompt("Digite o valor real para a posição " + i + ":"));
+            soma += vetor[i]; // Soma os valores do vetor
+        }
+    
+        // Calcula a média dos elementos
+        const media = soma / vetor.length;
+    
+        // Exibe a média dos elementos do vetor
+        alert("A média dos elementos do vetor é: " + media);
+    }
+    
+    // Chama a função para calcular e exibir a média
+    calcularMedia();
+    </script>
+    

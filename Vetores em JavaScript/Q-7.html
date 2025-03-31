@@ -1,0 +1,27 @@
+<script>
+    /*7. Faça um programa que leia um vetor de 15 posições de números inteiros 
+    e divida todos os seus elementos pelo maior valor do vetor. Mostre o vetor após os cálculos.*/
+    
+    function dividirPeloMaior() {
+        // Declara o vetor com 15 elementos
+        const vetor = [];
+        
+        // Preenche o vetor com valores fornecidos pelo usuário
+        for (let i = 0; i < 15; i++) {
+            vetor.push(Number(prompt("Digite o número para a posição " + (i + 1) + " do vetor:")));
+        }
+    
+        // Encontra o maior valor do vetor
+        const maiorValor = Math.max(...vetor);
+    
+        // Divide todos os elementos do vetor pelo maior valor
+        const vetorDividido = vetor.map(num => num / maiorValor);
+    
+        // Exibe o vetor após os cálculos
+        alert("Vetor após os cálculos: " + vetorDividido.join(", "));
+    }
+    
+    // Chama a função para realizar os cálculos
+    dividirPeloMaior();
+    </script>
+    

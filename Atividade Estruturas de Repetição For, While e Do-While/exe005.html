@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*5. O algoritmo deverá ler, além das notas, o código do aluno e deverá ser encerrado
+quando o código for igual a zero.*/
+
+
+    let codigoAluno = parseInt(prompt("Digite o código do aluno (0 para encerrar):"));
+
+    while (codigoAluno !== 0) {
+        let somaNotas = 0;
+        let quantidadeNotas = 3;
+
+        for (let i = 0; i < quantidadeNotas; i++) {
+            let nota = parseFloat(prompt("Digite uma nota:"));
+            somaNotas += nota;
+        }
+
+        let media = somaNotas / quantidadeNotas;
+        alert("A média das 3 notas do aluno " + codigoAluno + " é: " + media.toFixed(2));
+
+        codigoAluno = parseInt(prompt("Digite o código do aluno (0 para encerrar):"));
+    }
+
+    alert("Programa encerrado.");
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<script>
+/* 8. Faça um programa que receba 3 valores que representarão os lados de um triangulo e serão fornecidos pelo
+usuário. Verifique se os valores fornecidos formam um triangulo e classifique esse triangulo como: ( obs:
+lembre-se que, para formar um triangulo: nenhum dos lados pode ser igual a zero; um lado não pode ser maior
+do que a soma dos outros dois.*/
+
+// Recebe os valores dos lados do triângulo
+const lado1 = Number(prompt("Digite o valor do primeiro lado:"));
+  const lado2 = Number(prompt("Digite o valor do segundo lado:"));
+  const lado3 = Number(prompt("Digite o valor do terceiro lado:"));
+
+  // Função para verificar se os lados formam um triângulo
+  function formaTriangulo(a, b, c) {
+    return a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a;
+  }
+
+  // Classifica o triângulo
+  function classificaTriangulo(a, b, c) {
+    if (a === b && b === c) {
+      return "Triângulo Equilátero (todos os lados iguais).";
+    } else if (a === b || a === c || b === c) {
+      return "Triângulo Isósceles (dois lados iguais).";
+    } else {
+      return "Triângulo Escaleno (todos os lados diferentes).";
+    }
+  }
+
+  // Verifica e exibe o resultado
+  if (formaTriangulo(lado1, lado2, lado3)) {
+    const classificacao = classificaTriangulo(lado1, lado2, lado3);
+    alert(`Os valores fornecidos formam um triângulo. ${classificacao}`);
+  } else {
+    alert("Os valores fornecidos não formam um triângulo.");
+  }
+
+</script>

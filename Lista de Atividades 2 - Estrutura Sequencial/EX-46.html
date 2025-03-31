@@ -1,0 +1,37 @@
+<script>
+    /*46. Considere que o maior número recebe peso 5 e os outros dois recebem peso 2,5.*/
+    
+    function calcularMediaPonderadaComPesos() {
+        // Solicita ao usuário os três números
+        let num1 = Number(prompt("Digite o primeiro número:"));
+        let num2 = Number(prompt("Digite o segundo número:"));
+        let num3 = Number(prompt("Digite o terceiro número:"));
+    
+        // Determina o maior número e os dois menores
+        let maior = Math.max(num1, num2, num3);
+        let menor1, menor2;
+    
+        if (maior === num1) {
+            menor1 = num2;
+            menor2 = num3;
+        } else if (maior === num2) {
+            menor1 = num1;
+            menor2 = num3;
+        } else {
+            menor1 = num1;
+            menor2 = num2;
+        }
+    
+        // Calcula a média ponderada
+        let somaPesos = 5 + 2.5 + 2.5;  // O maior recebe peso 5 e os outros dois recebem peso 2.5
+        let somaProdutos = (maior * 5) + (menor1 * 2.5) + (menor2 * 2.5);
+        let mediaPonderada = somaProdutos / somaPesos;
+    
+        // Exibe o resultado
+        alert("A média ponderada é: " + mediaPonderada.toFixed(2));
+    }
+    
+    // Chama a função para executar o programa
+    calcularMediaPonderadaComPesos();
+    </script>
+    

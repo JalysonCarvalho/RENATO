@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<script>
+/* 3. Faça um programa que receba três notas de um aluno, calcule e mostre a média aritmética e a mensagem
+constante na tabela a seguir. Aos alunos que ficaram para exame, calcule e mostre a nota que deverão tirar
+para serem aprovados, considerando que a média exigida é 6,0.
+MÉDIA ARITMÉTICA MENSAGEM
+0,0 ------- 3,0 REPROVADO
+3,0 -------7,0 EXAME
+7,0 -------10,0 APROVADO*/
+
+  // Recebe as três notas do aluno
+  const nota1 = Number(prompt("Digite a primeira nota do aluno:"));
+  const nota2 = Number(prompt("Digite a segunda nota do aluno:"));
+  const nota3 = Number(prompt("Digite a terceira nota do aluno:"));
+
+  // Calcula a média aritmética
+  const mediaAritmetica = (nota1 + nota2 + nota3) / 3;
+
+  // Determina o status do aluno com base na média
+  let mensagem;
+  if (mediaAritmetica < 3) {
+    mensagem = "REPROVADO";
+  } else if (mediaAritmetica < 7) {
+    mensagem = "EXAME";
+  } else {
+    mensagem = "APROVADO";
+  }
+
+  // Exibe a média e a mensagem
+  alert(`A média aritmética é: ${mediaAritmetica.toFixed(2)}`);
+  alert(`Situação: ${mensagem}`);
+
+  // Calcula e exibe a nota necessária no exame, se aplicável
+  if (mensagem === "EXAME") {
+    const notaParaAprovacao = (6 * 2) - mediaAritmetica;
+    alert(`Para ser aprovado, o aluno precisa tirar no exame: ${notaParaAprovacao.toFixed(2)}`);
+  }
+</script>

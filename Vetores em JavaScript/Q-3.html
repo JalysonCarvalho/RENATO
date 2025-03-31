@@ -1,0 +1,40 @@
+<script>
+    /*3. Faça um programa que carregue um vetor com 15 elementos inteiros e
+    verifique a existência de elementos iguais a 30, mostrando as posições
+    em que esses elementos apareceram.*/
+    
+    function verificarElementos() {
+        // Declara o vetor com 15 elementos
+        const numeros = [];
+        const posicoes = [];
+    
+        // Preenche o vetor com valores fornecidos pelo usuário
+        for (let i = 0; i < 15; i++) {
+            let numero = prompt("Digite o número para a posição " + (i + 1) + ":");
+            
+            // Valida a entrada para garantir que o usuário forneça um número inteiro
+            while (isNaN(numero) || numero === "") {
+                numero = prompt("Por favor, digite um número válido para a posição " + (i + 1) + ":");
+            }
+            
+            numero = parseInt(numero); // Converte para inteiro
+            numeros.push(numero);
+            
+            // Verifica se o número é igual a 30 e registra a posição
+            if (numero === 30) {
+                posicoes.push(i); // Armazena a posição do número 30
+            }
+        }
+    
+        // Exibe as posições onde o número 30 apareceu
+        if (posicoes.length > 0) {
+            alert("O número 30 apareceu nas posições: " + posicoes.join(", "));
+        } else {
+            alert("O número 30 não foi encontrado.");
+        }
+    }
+    
+    // Chama a função para verificar os elementos
+    verificarElementos();
+    </script>
+    

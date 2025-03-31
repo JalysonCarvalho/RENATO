@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //37. Faça um programa que leia dez conjuntos de dois valores, o primeiro representando o número do aluno e o segundo representando a sua altura em centímetros.
+        //a. Encontre o aluno mais alto e o mais baixo.
+        //b. Mostre o número do aluno mais alto e o número do mais baixo junto com suas alturas.
+    
+        let alunos = [];
+        for (let i = 0; i < 10; i++) {
+            let numeroAluno = parseInt(prompt(`Digite o número do aluno ${i + 1}:`));
+            let alturaAluno = parseFloat(prompt(`Digite a altura do aluno ${i + 1} em centímetros:`));
+            alunos.push({ numero: numeroAluno, altura: alturaAluno });
+            alert(`Aluno ${i + 1}: Número - ${numeroAluno}, Altura - ${alturaAluno} cm`);
+    
+            if (i === 0 || alunos[i].altura > alunos[maiorAlto].altura) {
+                maiorAlto = i;
+            }
+    
+            if (i === 0 || alunos[i].altura < alunos[menorAlto].altura) {
+                menorAlto = i;
+            }
+        }
+        alert(`O aluno mais alto é o ${alunos[maiorAlto].numero} com ${alunos[maiorAlto].altura} cm.`);
+        alert(`O aluno mais baixo é o ${alunos[menorAlto].numero} com ${alunos[menorAlto].altura} cm.`);
+        //console.log(alunos);
+    
+    </script>
+</body>
+</html>

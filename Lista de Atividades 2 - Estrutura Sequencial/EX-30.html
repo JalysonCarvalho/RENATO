@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<script>
+    /*30. Faça um algoritmo para calcular a nota semestral de um aluno. A nota semestral é obtida
+pela média aritmética entre a nota de 2 bimestres. Cada nota de bimestre é composta por
+2 notas de provas.*/
+
+    // Solicita as notas das provas dos dois bimestres
+    const prova1_bimestre1 = Number(prompt("Digite a nota da 1ª prova do 1º bimestre:"));
+    const prova2_bimestre1 = Number(prompt("Digite a nota da 2ª prova do 1º bimestre:"));
+    const prova1_bimestre2 = Number(prompt("Digite a nota da 1ª prova do 2º bimestre:"));
+    const prova2_bimestre2 = Number(prompt("Digite a nota da 2ª prova do 2º bimestre:"));
+
+    // Calcula a média de cada bimestre
+    const media_bimestre1 = (prova1_bimestre1 + prova2_bimestre1) / 2;
+    const media_bimestre2 = (prova1_bimestre2 + prova2_bimestre2) / 2;
+
+    // Calcula a nota semestral como a média das médias dos bimestres
+    const nota_semestral = (media_bimestre1 + media_bimestre2) / 2;
+
+    // Exibe o resultado
+    alert(`Nota do 1º Bimestre: ${media_bimestre1.toFixed(2)}\nNota do 2º Bimestre: ${media_bimestre2.toFixed(2)}\nNota Semestral: ${nota_semestral.toFixed(2)}`);
+</script>

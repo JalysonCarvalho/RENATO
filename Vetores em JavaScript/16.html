@@ -1,0 +1,29 @@
+<script>
+    /*16. Escreva um programa que declare um vetor de inteiros com tamanho 8 e preencha-o com valores fornecidos pelo usuário. 
+    Em seguida, encontre e exiba a posição (índice) do primeiro elemento negativo encontrado no vetor.*/
+    
+    function encontrarPrimeiroNegativo() {
+        // Declara o vetor de inteiros com tamanho 8
+        const numeros = [];
+    
+        // Preenche o vetor com os valores fornecidos pelo usuário
+        for (let i = 0; i < 8; i++) {
+            let valor = prompt("Digite o " + (i + 1) + "º número:");
+            numeros.push(parseInt(valor)); // Converte para inteiro e adiciona no vetor
+        }
+    
+        // Encontra a posição do primeiro número negativo
+        const indiceNegativo = numeros.findIndex(num => num < 0);
+    
+        // Verifica se algum número negativo foi encontrado e exibe a posição
+        if (indiceNegativo !== -1) {
+            alert("O primeiro número negativo está na posição: " + indiceNegativo);
+        } else {
+            alert("Não há números negativos no vetor.");
+        }
+    }
+    
+    // Chama a função para encontrar o primeiro número negativo
+    encontrarPrimeiroNegativo();
+    </script>
+    

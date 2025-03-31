@@ -1,0 +1,37 @@
+<script>
+    /*11. Faça um programa que carregue um vetor com os nomes de sete alunos. 
+    Carregue um outro vetor com a média final desses alunos. Calcule e mostre 
+    o nome do aluno com maior média (desconsiderar empates).*/
+    
+    function encontrarMaiorMedia() {
+        const alunos = [];
+        const medias = [];
+        
+        // Carregar os nomes dos alunos e as médias
+        for (let i = 0; i < 7; i++) {
+            const nome = prompt("Digite o nome do aluno " + (i + 1) + ":");
+            alunos.push(nome);
+            
+            const media = parseFloat(prompt("Digite a média do aluno " + nome + ":"));
+            medias.push(media);
+        }
+        
+        // Encontrar o índice da maior média
+        let maiorMedia = medias[0];
+        let indiceMaiorMedia = 0;
+        
+        for (let i = 1; i < medias.length; i++) {
+            if (medias[i] > maiorMedia) {
+                maiorMedia = medias[i];
+                indiceMaiorMedia = i;
+            }
+        }
+    
+        // Exibir o nome do aluno com a maior média
+        alert("O aluno com a maior média é: " + alunos[indiceMaiorMedia]);
+    }
+    
+    // Chama a função para encontrar o aluno com a maior média
+    encontrarMaiorMedia();
+    </script>
+    

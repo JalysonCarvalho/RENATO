@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //40. Faça um programa que receba duas notas de seis alunos, calcule e mostre:
+        // • A média aritmética das duas notas de cada aluno;
+        // • A mensagem que está na tabela a seguir:
+    
+        // • O total de alunos aprovados;
+        // • O total de alunos de exame;
+        // • Total de alunos reprovados;
+        // • A média da classe.
+    
+        let alunosAprovados = 0;
+        let alunosDeExame = 0;
+        let alunosReprovados = 0;
+        let somaNotas = 0;
+        let mediaClasse = 0;
+        for (let i = 1; i <= 6; i++) {
+            let nota1 = parseFloat(prompt(`Digite a primeira nota do aluno ${i}: `));
+            let nota2 = parseFloat(prompt(`Digite a segunda nota do aluno ${i}: `));
+            let media = (nota1 + nota2) / 2;
+            alert(`A média aritmética das duas notas do aluno ${i} é: ${media.toFixed(2)}`);
+            somaNotas += media;
+            if (media >= 7) {
+                alunosAprovados++;
+            } else if (media >= 5 && media < 7) {
+                alunosDeExame++;
+            } else {
+                alunosReprovados++;
+            }
+            mediaClasse = somaNotas / 6;
+            alert(`A média da classe é: ${mediaClasse.toFixed(2)}`);
+            alert(`Tabela com as notas dos alunos:
+            Aluno ${i}: Nota 1: ${nota1.toFixed(2)}, Nota 2: ${nota2.toFixed(2)}, Média: ${media.toFixed(2)}`);
+        }
+        alert(`Total de alunos aprovados: ${alunosAprovados}`);
+        alert(`Total de alunos de exame: ${alunosDeExame}`);
+        alert(`Total de alunos reprovados: ${alunosReprovados}`);
+        
+           
+            
+    </script>
+</body>
+</html>

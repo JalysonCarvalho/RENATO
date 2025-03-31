@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*15. Chico tem 1,50 metro e cresce 2 centímetros por ano, enquanto Zé tem 1,10 metro e
+cresce 3 centímetros por ano. Construa um algoritmo que calcule e imprima quantos
+anos serão necessários para que Zé seja maior que Chico.*/
+
+let alturaChico = 1.50; // Altura inicial de Chico em metros
+let alturaZe = 1.10; // Altura inicial de Zé em metros
+let anos = 0; // Contador de anos
+
+// Aumentos anuais
+const crescimentoChico = 0.02; // Crescimento de Chico por ano em metros (2 cm = 0.02 metros)
+const crescimentoZe = 0.03; // Crescimento de Zé por ano em metros (3 cm = 0.03 metros)
+
+while (alturaZe <= alturaChico) {
+    // Zé e Chico crescem anualmente
+    alturaChico += crescimentoChico;
+    alturaZe += crescimentoZe;
+    anos++; // Incrementa o contador de anos
+}
+
+alert("Serão necessários " + anos + " anos para que Zé seja maior que Chico.");
+
+    </script>
+</body>
+</html>

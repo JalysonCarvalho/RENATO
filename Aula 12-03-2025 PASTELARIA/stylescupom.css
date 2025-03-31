@@ -1,0 +1,134 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Fundo suave de laranja claro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    
+}
+
+header {
+    text-align: center;
+}
+
+/* Contêiner principal */
+.container, .order-summary, #cupomContainer {
+    background-color: #ffffff; /* Branco para os blocos de conteúdo */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+}
+
+h1 {
+    color: #ff7f50; /* Tom de laranja para o título */
+}
+
+
+
+/* Estilos para os produtos */
+.product-card {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ffcc99; /* Laranja claro para os contornos */
+    border-radius: 5px;
+    background-color: #fff2e6; /* Fundo suave de laranja claro */
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-actions button {
+    background-color: #ff7f50; /* Laranja vibrante para botões */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.product-actions button:hover {
+    background-color: #ff5722; /* Laranja mais intenso ao passar o mouse */
+}
+
+/* Estilos do resumo do pedido */
+#orderDetails {
+    margin: 10px 0;
+}
+
+.total-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff7f50; /* Cor de laranja para destacar o total */
+}
+
+#startOrderButton {
+    background-color: #ff7f50; /* Laranja vibrante para o botão de finalizar pedido */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#startOrderButton:hover {
+    background-color: #ff5722; /* Laranja mais intenso ao passar o mouse */
+}
+
+/* Estilo do cupom */
+#cupomContainer {
+    background-color: #fff; /* Branco para o cupom */
+    border: 1px solid #ffcc99; /* Laranja claro para a borda do cupom */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+#cupomContainer h2 {
+    color: #ff7f50; /* Laranja forte para o título "Cupom" */
+}
+
+.cupom-item {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ff8c00; /* Laranja mais suave para os itens do cupom */
+}
+
+footer {
+    background-color: #000000; /* Fundo de laranja para o rodapé */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+
+#novoPedidoButton {
+    background-color: #ff7f50; /* Cor laranja vibrante */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+#novoPedidoButton:hover {
+    background-color: #ff5722; /* Laranja mais forte ao passar o mouse */
+}

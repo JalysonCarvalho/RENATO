@@ -1,0 +1,23 @@
+<script>
+    /*13. Para cada aluno que ainda não está aprovado, ou seja, com média menor que 7,0,
+    mostrar quanto esse aluno precisa tirar no exame para ser aprovado. 
+    Considerar que a média para aprovação no exame é 5,0.*/
+    
+    function calcularNotaExame() {
+        const alunos = ["Aluno A", "Aluno B", "Aluno C", "Aluno D", "Aluno E"];
+        const medias = [6.5, 7.2, 4.8, 6.0, 5.5]; // médias dos alunos
+    
+        // Percorrer os alunos e verificar se a média é menor que 7
+        for (let i = 0; i < alunos.length; i++) {
+            if (medias[i] < 7.0) {
+                // Calcular quanto o aluno precisa tirar no exame para alcançar a média 5.0
+                const notaExameNecessaria = (5.0 * 2) - medias[i]; // Média do exame e da nota final = 5.0
+                alert(`${alunos[i]} precisa tirar ${notaExameNecessaria.toFixed(1)} no exame para ser aprovado.`);
+            }
+        }
+    }
+    
+    // Chama a função para calcular e mostrar as notas que os alunos precisam tirar no exame
+    calcularNotaExame();
+    </script>
+    

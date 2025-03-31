@@ -1,0 +1,42 @@
+<script>
+    /*33. Faça um programa que carregue um vetor com 15 posições, calcule e
+    mostre:
+    (a) o maior elemento do vetor e em que posição esse elemento se encontra;
+    (b) o menor elemento do vetor e em que posição esse elemento se encontra.*/
+    
+    function calcularMaiorEMenor() {
+        const vetor = [];
+    
+        // Preenche o vetor com 15 valores fornecidos pelo usuário
+        for (let i = 0; i < 15; i++) {
+            let numero = parseInt(prompt("Digite o número " + (i + 1) + " para o vetor:"));
+            vetor.push(numero);
+        }
+    
+        // Inicializa as variáveis para o maior e menor valor e suas posições
+        let maiorValor = vetor[0];
+        let menorValor = vetor[0];
+        let posMaior = 0;
+        let posMenor = 0;
+    
+        // Percorre o vetor para encontrar o maior e o menor valor
+        for (let i = 1; i < vetor.length; i++) {
+            if (vetor[i] > maiorValor) {
+                maiorValor = vetor[i];
+                posMaior = i;
+            }
+            if (vetor[i] < menorValor) {
+                menorValor = vetor[i];
+                posMenor = i;
+            }
+        }
+    
+        // Exibe os resultados
+        alert("O maior valor é " + maiorValor + " e está na posição " + posMaior);
+        alert("O menor valor é " + menorValor + " e está na posição " + posMenor);
+    }
+    
+    // Chama a função para calcular o maior e o menor valor
+    calcularMaiorEMenor();
+    </script>
+    

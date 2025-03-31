@@ -1,0 +1,16 @@
+<script>
+    /*9. Filtrando Números Pares: Crie uma função filtrarPares() 
+    que recebe um vetor de números e retorna um novo vetor contendo apenas os números pares.*/
+    
+    function filtrarPares(vetor) {
+        // Filtra os números pares usando o método filter e o operador módulo (%)
+        return vetor.filter(numero => numero % 2 === 0);
+    }
+    
+    // Exemplo de uso
+    const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const numerosPares = filtrarPares(numeros);
+    
+    alert("Números pares: " + numerosPares); // Exibe os números pares
+    </script>
+    

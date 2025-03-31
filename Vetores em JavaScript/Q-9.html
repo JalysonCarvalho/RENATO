@@ -1,0 +1,56 @@
+<script>
+    /*9. Faça um programa que receba o nome e duas notas de seis alunos e 
+    mostre o relatório abaixo:
+    • RELATÓRIO DE NOTAS: 
+    • Média de classe = ?
+    • Quantidade de aprovados = ?
+    • Quantidade de alunos de exame = ?
+    • Quantidade de reprovados = ?*/
+    
+    function gerarRelatorio() {
+        const alunos = [];
+        let totalNotas = 0;
+        let aprovados = 0;
+        let exames = 0;
+        let reprovados = 0;
+    
+        // Recebe o nome e as notas dos alunos
+        for (let i = 0; i < 6; i++) {
+            const nome = prompt("Digite o nome do aluno " + (i + 1) + ":");
+            const nota1 = parseFloat(prompt("Digite a primeira nota de " + nome + ":"));
+            const nota2 = parseFloat(prompt("Digite a segunda nota de " + nome + ":"));
+    
+            // Calcula a média do aluno
+            const media = (nota1 + nota2) / 2;
+            
+            // Acumula as notas para a média da classe
+            totalNotas += media;
+    
+            // Verifica a situação do aluno
+            if (media >= 7) {
+                aprovados++;
+            } else if (media >= 4) {
+                exames++;
+            } else {
+                reprovados++;
+            }
+    
+            // Armazena as informações do aluno
+            alunos.push({ nome, media });
+        }
+    
+        // Calcula a média da classe
+        const mediaClasse = totalNotas / 6;
+    
+        // Exibe o relatório
+        alert("RELATÓRIO DE NOTAS:");
+        alert("Média de classe = " + mediaClasse.toFixed(2));
+        alert("Quantidade de aprovados = " + aprovados);
+        alert("Quantidade de alunos de exame = " + exames);
+        alert("Quantidade de reprovados = " + reprovados);
+    }
+    
+    // Chama a função para gerar o relatório
+    gerarRelatorio();
+    </script>
+    

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*13. Peça ao usuário um número entre 1 e 10. Continue pedindo até que ele forneça um
+número válido.*/
+
+  // O programa escolhe um número aleatório entre 1 e 10
+  let numeroSorteado = Math.floor(Math.random() * 10) + 1;
+  let numUsuario;
+
+  // O usuário deve adivinhar o número sorteado
+  while (numUsuario !== numeroSorteado) {
+    numUsuario = Number(prompt("Tente adivinhar o número sorteado entre 1 e 10:"));
+    if (numUsuario < numeroSorteado) {
+      alert("O número é maior! Tente novamente.");
+    } else if (numUsuario > numeroSorteado) {
+      alert("O número é menor! Tente novamente.");
+    }
+  }
+
+  alert("Parabéns! Você acertou o número sorteado: " + numeroSorteado);
+
+
+   
+    </script>
+</body>
+</html>

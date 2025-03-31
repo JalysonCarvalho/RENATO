@@ -1,0 +1,27 @@
+<script>
+    /*5. Cálculo de Média: Crie uma função chamada calcularMedia() 
+    que recebe três notas e retorna a média aritmética.*/
+    
+    function calcularMedia() {
+        // Solicita ao usuário três notas
+        const nota1 = parseFloat(prompt("Digite a primeira nota:"));
+        const nota2 = parseFloat(prompt("Digite a segunda nota:"));
+        const nota3 = parseFloat(prompt("Digite a terceira nota:"));
+    
+        // Verifica se as notas são válidas (não nulas ou NaN)
+        if (nota1 == null || nota2 == null || nota3 == null || isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+            alert("Por favor, insira valores válidos para as notas.");
+            return;
+        }
+    
+        // Calcula a média aritmética
+        const media = (nota1 + nota2 + nota3) / 3;
+    
+        // Exibe o resultado da média
+        alert(`A média das notas é: ${media.toFixed(2)}`);
+    }
+    
+    // Chama a função para executar o programa
+    calcularMedia();
+    </script>
+    

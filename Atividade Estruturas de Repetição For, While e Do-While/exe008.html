@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*8. Implementar um menu interativo com do-while para selecionar opções de um programa.*/
+    
+    let opcao;
+
+    do {
+        // Exibe o menu de opções
+        opcao = parseInt(prompt(
+            "Menu de Opções:\n" +
+            "1. Exibir mensagem de boas-vindas\n" +
+            "2. Calcular a soma de 1 + 1\n" +
+            "3. Exibir os números pares entre 1 e 100\n" +
+            "4. Sair\n" +
+            "Escolha uma opção:"
+        ));
+
+        // Processa a opção escolhida
+        if (opcao === 1) {
+            alert("Bem-vindo ao nosso programa!");
+        } else if (opcao === 2) {
+            alert("A soma de 1 + 1 é: " + (1 + 1));
+        } else if (opcao === 3) {
+            let numerosPares = "";
+            for (let num = 1; num <= 100; num++) {
+                if (num % 2 === 0) {
+                    numerosPares += num + " ";
+                }
+            }
+            alert("Números pares entre 1 e 100: " + numerosPares);
+        } else if (opcao === 4) {
+            alert("Programa encerrado.");
+        } else {
+            alert("Opção inválida, tente novamente.");
+        }
+
+    } while (opcao !== 4); // O loop continua até a opção ser 4 (Sair)
+
+
+    </script>
+</body>
+</html>

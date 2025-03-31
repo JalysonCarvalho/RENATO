@@ -1,0 +1,24 @@
+<script>
+    /*8. Escreva um programa que declare um vetor de inteiros com tamanho 5 e preencha-o com valores fornecidos pelo usuário. Em seguida, encontre e exiba o menor elemento do vetor.*/
+    
+    function encontrarMenorElemento() {
+        // Declara um vetor vazio
+        let numeros = [];
+        
+        // Preenche o vetor com valores fornecidos pelo usuário
+        for (let i = 0; i < 5; i++) {
+            let valor = prompt(`Digite o valor para o ${i+1}º número:`);
+            numeros.push(Number(valor));  // Adiciona o valor no vetor convertendo para número
+        }
+        
+        // Encontra o menor número no vetor
+        let menorNumero = Math.min(...numeros);
+        
+        // Exibe o menor número
+        alert("O menor elemento do vetor é: " + menorNumero);
+    }
+    
+    // Chama a função para encontrar e exibir o menor elemento
+    encontrarMenorElemento();
+    </script>
+    

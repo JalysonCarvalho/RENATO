@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*19. Em uma eleição presidencial existem quatro candidatos. Os votos são informados
+através de códigos. Os dados utilizados para a contagem dos votos obedecem à
+seguinte codificação:
+- 1,2,3,4 = voto para os respectivos candidatos;
+- 5 = voto nulo;
+- 6 = voto em branco;
+Elabore um algoritmo que leia o código do candidato em um voto. Calcule e escreva:
+- Total de votos para cada candidato;
+- Total de votos nulos;
+- Total de votos em branco;
+Como finalizador do conjunto de votos, tem-se o valor 0.*/
+
+// Inicializando as variáveis para contar os votos de cada candidato, nulos e em branco
+let votosCandidato1 = 0;
+let votosCandidato2 = 0;
+let votosCandidato3 = 0;
+let votosCandidato4 = 0;
+let votosNulos = 0;
+let votosEmBranco = 0;
+
+// Inicializando a variável do voto com um valor qualquer que não seja 0
+let voto = -1;
+
+// Loop para coletar votos até que o código 0 seja informado
+while (voto !== 0) {
+    // Solicitando ao usuário que informe o código do voto
+    voto = Number(prompt("Informe o código do voto (1 a 4 para candidatos, 5 para nulo, 6 para em branco, 0 para encerrar):"));
+
+    // Verificando o valor do voto informado
+    if (voto === 1) {
+        votosCandidato1++; // Incrementa o voto para o candidato 1
+    } else if (voto === 2) {
+        votosCandidato2++; // Incrementa o voto para o candidato 2
+    } else if (voto === 3) {
+        votosCandidato3++; // Incrementa o voto para o candidato 3
+    } else if (voto === 4) {
+        votosCandidato4++; // Incrementa o voto para o candidato 4
+    } else if (voto === 5) {
+        votosNulos++; // Incrementa o voto nulo
+    } else if (voto === 6) {
+        votosEmBranco++; // Incrementa o voto em branco
+    } else if (voto !== 0) {
+        // Caso o código do voto seja inválido (não seja 1, 2, 3, 4, 5, 6 ou 0), exibe uma mensagem de erro
+        alert("Código inválido. Tente novamente.");
+    }
+}
+
+// Após o encerramento da coleta de votos (quando o código 0 é informado), exibe os resultados
+// Exibe todos os resultados de uma vez só em um único alert
+alert(
+    "Total de votos para o Candidato 1: " + votosCandidato1 + "\n" +
+    "Total de votos para o Candidato 2: " + votosCandidato2 + "\n" +
+    "Total de votos para o Candidato 3: " + votosCandidato3 + "\n" +
+    "Total de votos para o Candidato 4: " + votosCandidato4 + "\n" +
+    "Total de votos nulos: " + votosNulos + "\n" +
+    "Total de votos em branco: " + votosEmBranco
+);
+
+    </script>
+</body>
+</html>

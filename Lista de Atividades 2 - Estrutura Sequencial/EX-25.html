@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<script>
+/*25. Ler dois números inteiros e exibir o quociente e o resto da divisão inteira entre eles.*/
+
+const numero1 = Number(prompt("Digite o primeiro número inteiro:"));
+const numero2 = Number(prompt("Digite o segundo número inteiro:"));
+
+if (Number.isInteger(numero1) && Number.isInteger(numero2) && numero2 !== 0) {
+    const quociente = Math.floor(numero1 / numero2);
+    const resto = numero1 % numero2;
+
+    alert(`O quociente da divisão de ${numero1} por ${numero2} é: ${quociente}`);
+    alert(`O resto da divisão de ${numero1} por ${numero2} é: ${resto}`);
+} else {
+    alert("Por favor, insira números inteiros válidos e certifique-se de que o divisor não seja zero.");
+}
+
+</script>

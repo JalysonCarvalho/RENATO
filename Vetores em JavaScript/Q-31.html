@@ -1,0 +1,68 @@
+<script>
+    /*31. Faça um programa que receba o total das vendas de cada vendedor e
+    armazene-as em um vetor. Receba também o percentual de comissão de cada
+    vendedor e armazene-os em outro vetor. Receba os nomes desses vendedores e
+    armazene-os em um terceiro vetor. Existem apenas dez vendedores. Calcule e mostre:
+    (a) um relatório com os nomes dos vendedores e os valores a receber;
+    (b) o total das vendas de todos os vendedores;
+    (c) o maior valor a receber e quem o receberá;
+    (d) o menor valor e quem o receberá.*/
+    
+    function calcularComissoes() {
+        // Vetores para armazenar as vendas, comissões e nomes dos vendedores
+        const vendas = [];
+        const comissoes = [];
+        const vendedores = [];
+    
+        let totalVendas = 0;
+        let maiorValor = 0;
+        let menorValor = Infinity;
+        let vendedorMaiorComissao = '';
+        let vendedorMenorComissao = '';
+    
+        // Recebe as informações de cada vendedor
+        for (let i = 0; i < 10; i++) {
+            let nome = prompt("Digite o nome do vendedor " + (i + 1) + ":");
+            let vendasTotais = parseFloat(prompt("Digite o total de vendas de " + nome + ":"));
+            let comissaoPercentual = parseFloat(prompt("Digite o percentual de comissão de " + nome + ":"));
+    
+            // Armazena as informações nos vetores
+            vendedores.push(nome);
+            vendas.push(vendasTotais);
+            comissoes.push(comissaoPercentual);
+    
+            // Calcula o valor a receber (vendas * comissão)
+            let valorReceber = vendasTotais * (comissaoPercentual / 100);
+    
+            // Atualiza o total das vendas
+            totalVendas += vendasTotais;
+    
+            // Verifica o maior e o menor valor a receber
+            if (valorReceber > maiorValor) {
+                maiorValor = valorReceber;
+                vendedorMaiorComissao = nome;
+            }
+    
+            if (valorReceber < menorValor) {
+                menorValor = valorReceber;
+                vendedorMenorComissao = nome;
+            }
+    
+            // Exibe o relatório dos vendedores e o valor a receber
+            alert(nome + " vai receber R$ " + valorReceber.toFixed(2));
+        }
+    
+        // Exibe o total das vendas de todos os vendedores
+        alert("Total das vendas de todos os vendedores: R$ " + totalVendas.toFixed(2));
+    
+        // Exibe o vendedor com o maior valor a receber
+        alert("O maior valor a receber é R$ " + maiorValor.toFixed(2) + ", e será recebido por " + vendedorMaiorComissao);
+    
+        // Exibe o vendedor com o menor valor a receber
+        alert("O menor valor a receber é R$ " + menorValor.toFixed(2) + ", e será recebido por " + vendedorMenorComissao);
+    }
+    
+    // Chama a função para calcular as comissões
+    calcularComissoes();
+    </script>
+    

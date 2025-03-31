@@ -1,0 +1,27 @@
+<script>
+    /*10. Produto Mais Barato: Escreva um programa que receba um vetor de objetos 
+    representando produtos (com nome e preço) e retorne o nome do produto mais barato.*/
+    
+    function produtoMaisBarato(produtos) {
+        // Usa o método reduce para encontrar o produto mais barato
+        const produtoBarato = produtos.reduce((maisBarato, produtoAtual) => {
+            return produtoAtual.preco < maisBarato.preco ? produtoAtual : maisBarato;
+        });
+        
+        // Retorna o nome do produto mais barato
+        return produtoBarato.nome;
+    }
+    
+    // Exemplo de uso
+    const produtos = [
+        { nome: "Arroz", preco: 20.5 },
+        { nome: "Feijão", preco: 10.3 },
+        { nome: "Macarrão", preco: 5.7 },
+        { nome: "Açúcar", preco: 7.8 }
+    ];
+    
+    const nomeProdutoBarato = produtoMaisBarato(produtos);
+    
+    alert("O produto mais barato é: " + nomeProdutoBarato); // Exibe o nome do produto mais barato
+    </script>
+    

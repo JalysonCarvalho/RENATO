@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*25. Crie um programa que continue lendo números inteiros até que o usuário digite o número zero. Ao final, o programa deve exibir: 
+a. A média dos números positivos. 
+b. A quantidade de números negativos digitados. 
+Exemplo de entrada: 
+4, -3, 6, -1, 0 
+Saída esperada: 
+Média dos positivos: 5.00 
+Quantidade de negativos: 2 
+*/
+
+let somaPositivos = 0;   // Soma dos números positivos
+let quantidadePositivos = 0; // Quantidade de números positivos
+let quantidadeNegativos = 0; // Quantidade de números negativos
+let numero; // Variável para armazenar o número informado
+
+// Loop para ler os números até o usuário digitar o número 0
+do {
+    numero = Number(prompt("Informe um número (digite 0 para encerrar):"));
+
+    if (numero > 0) {
+        somaPositivos += numero; // Adiciona o número positivo à soma
+        quantidadePositivos++;    // Conta os números positivos
+    } else if (numero < 0) {
+        quantidadeNegativos++;    // Conta os números negativos
+    }
+} while (numero !== 0);
+
+// Calcula a média dos números positivos, se houver algum
+let mediaPositivos = (quantidadePositivos > 0) ? (somaPositivos / quantidadePositivos) : 0;
+
+// Exibe o resultado com um único alert
+alert("Média dos positivos: " + mediaPositivos.toFixed(2) + "\nQuantidade de negativos: " + quantidadeNegativos);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<script>
+    /*38. Uma loja vende seus produtos no sistema entrada mais duas prestações, sendo a entrada
+    maior do que ou igual às duas prestações, as quais devem ser iguais, inteiras e as maiores
+    possíveis.*/
+    
+    function calcularPagamento() {
+        // Solicita ao usuário o valor da mercadoria
+        let valorMercadoria = Number(prompt("Digite o valor da mercadoria:"));
+    
+        // Verifica se o valor inserido é válido
+        if (valorMercadoria <= 0) {
+            alert("Por favor, insira um valor válido para a mercadoria.");
+            return;
+        }
+    
+        // Solicita ao usuário o valor da entrada
+        let entrada = Number(prompt("Digite o valor da entrada (deve ser maior ou igual às prestações):"));
+    
+        // Verifica se a entrada é válida
+        if (entrada < 0 || entrada > valorMercadoria) {
+            alert("A entrada deve ser um valor positivo e menor ou igual ao valor da mercadoria.");
+            return;
+        }
+    
+        // Calcula o valor restante para as prestações
+        let restante = valorMercadoria - entrada;
+        
+        // Define o valor das prestações (iguais e inteiras)
+        let prestacao = Math.floor(restante / 2);
+    
+        // Ajusta a entrada para cobrir qualquer diferença arredondada
+        entrada = valorMercadoria - (prestacao * 2);
+    
+        // Exibe os valores calculados
+        alert("Valor da mercadoria: R$ " + valorMercadoria.toFixed(2) +
+              "\nEntrada: R$ " + entrada.toFixed(2) +
+              "\nDuas prestações de: R$ " + prestacao.toFixed(2));
+    }
+    
+    // Chama a função para calcular o pagamento
+    calcularPagamento();
+    </script>
+    

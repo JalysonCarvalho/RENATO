@@ -1,0 +1,52 @@
+<script>
+    /*8. Faça um programa que receba o nome de cinco produtos e seus respectivos preços, 
+    calcule e mostre:
+    (a) a quantidade de produtos com preço inferior a R$ 50,00;
+    (b) o nome dos produtos com preço entre R$ 50,00 e R$ 100,00;
+    (c) a média dos preços dos produtos com preço superior a R$ 100,00.*/
+    
+    function processarProdutos() {
+        // Declara os vetores para armazenar os nomes dos produtos e seus preços
+        const nomesProdutos = [];
+        const precosProdutos = [];
+        
+        // Preenche os vetores com os dados dos produtos
+        for (let i = 0; i < 5; i++) {
+            const nome = prompt("Digite o nome do produto " + (i + 1) + ":");
+            const preco = parseFloat(prompt("Digite o preço de " + nome + ":"));
+            
+            nomesProdutos.push(nome);
+            precosProdutos.push(preco);
+        }
+    
+        // Variáveis para armazenar os resultados
+        let quantidadeInferior50 = 0;
+        let produtosEntre50e100 = [];
+        let somaPrecoSuperior100 = 0;
+        let quantidadeSuperior100 = 0;
+    
+        // Processa os preços
+        for (let i = 0; i < 5; i++) {
+            if (precosProdutos[i] < 50) {
+                quantidadeInferior50++;
+            } else if (precosProdutos[i] >= 50 && precosProdutos[i] <= 100) {
+                produtosEntre50e100.push(nomesProdutos[i]);
+            } else {
+                somaPrecoSuperior100 += precosProdutos[i];
+                quantidadeSuperior100++;
+            }
+        }
+    
+        // Calcula a média dos preços dos produtos com preço superior a R$ 100,00
+        let mediaSuperior100 = quantidadeSuperior100 > 0 ? somaPrecoSuperior100 / quantidadeSuperior100 : 0;
+    
+        // Exibe os resultados
+        alert("Quantidade de produtos com preço inferior a R$ 50,00: " + quantidadeInferior50);
+        alert("Produtos com preço entre R$ 50,00 e R$ 100,00: " + produtosEntre50e100.join(", "));
+        alert("Média dos preços dos produtos com preço superior a R$ 100,00: R$ " + mediaSuperior100.toFixed(2));
+    }
+    
+    // Chama a função para processar os produtos
+    processarProdutos();
+    </script>
+    

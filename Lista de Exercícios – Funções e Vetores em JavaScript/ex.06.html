@@ -1,0 +1,45 @@
+<script>
+    /*6. Calculadora Simples: Crie uma função calculadora() que recebe 
+    dois números e um operador matemático (+, -, *, /) e retorna o resultado da operação.*/
+    
+    function calculadora() {
+        // Solicita ao usuário os dois números e o operador, já convertendo para float
+        const n1 = parseFloat(prompt("Digite o primeiro número:"));
+        const n2 = parseFloat(prompt("Digite o segundo número:"));
+        const operador = prompt("Digite o operador (+, -, *, /):");
+    
+        // Verifica se os números são válidos (não NaN)
+        if (n1 == null || n2 == null || operador == null || isNaN(n1) || isNaN(n2)) {
+            alert("Por favor, insira números válidos.");
+            return;
+        }
+    
+        // Inicializa a variável para o resultado
+        let resultado;
+    
+        // Realiza a operação de acordo com o operador fornecido
+        if (operador === "+") {
+            resultado = n1 + n2;
+        } else if (operador === "-") {
+            resultado = n1 - n2;
+        } else if (operador === "*") {
+            resultado = n1 * n2;
+        } else if (operador === "/") {
+            if (n2 === 0) {
+                alert("Não é possível dividir por zero.");
+                return;
+            }
+            resultado = n1 / n2;
+        } else {
+            alert("Operador inválido. Por favor, use +, -, * ou /.");
+            return;
+        }
+    
+        // Exibe o resultado da operação
+        alert(`Resultado: ${n1} ${operador} ${n2} = ${resultado}`);
+    }
+    
+    // Chama a função para executar o programa
+    calculadora();
+    </script>
+    

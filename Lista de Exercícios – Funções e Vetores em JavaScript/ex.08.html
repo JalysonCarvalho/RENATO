@@ -1,0 +1,25 @@
+<script>
+    /*8. Contagem Regressiva: Crie uma função chamada contagemRegressiva() 
+    que recebe um número e exibe uma contagem regressiva até 0.*/
+    
+    function contagemRegressiva() {
+        // Solicita ao usuário o número inicial para a contagem regressiva
+        const numero = Number(prompt("Digite o número para iniciar a contagem regressiva:"));
+    
+        // Verifica se o número inserido é válido (maior ou igual a 0)
+        if (numero < 0) {
+            alert("Por favor, insira um número válido (maior ou igual a 0).");
+            return;
+        }
+    
+        // Exibe a contagem regressiva até 0
+        while (numero >= 0) {
+            alert(numero); // Exibe o número atual da contagem
+            numero--; // Decrementa o número
+        }
+    }
+    
+    // Chama a função para executar o programa
+    contagemRegressiva();
+    </script>
+    

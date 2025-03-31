@@ -1,0 +1,38 @@
+<script>
+    /*1. Faça um programa que carregue um vetor de seis elementos numéricos inteiros,
+    calcule e mostre:
+    (a) a quantidade de números pares;
+    (b) quais os números pares;
+    (c) a quantidade de números ímpares;
+    (d) quais os números ímpares.*/
+    
+    function processarNumeros() {
+        // Declara o vetor com 6 elementos
+        const numeros = [];
+        let pares = [];
+        let impares = [];
+    
+        // Preenche o vetor com valores fornecidos pelo usuário
+        for (let i = 0; i < 6; i++) {
+            let numero = parseInt(prompt("Digite um número para a posição " + (i + 1) + ":"));
+            numeros.push(numero);
+    
+            // Classifica os números como pares ou ímpares
+            if (numero % 2 === 0) {
+                pares.push(numero);
+            } else {
+                impares.push(numero);
+            }
+        }
+    
+        // Exibe as informações solicitadas
+        alert("Quantidade de números pares: " + pares.length);
+        alert("Números pares: " + pares.join(", "));
+        alert("Quantidade de números ímpares: " + impares.length);
+        alert("Números ímpares: " + impares.join(", "));
+    }
+    
+    // Chama a função para processar os números
+    processarNumeros();
+    </script>
+    

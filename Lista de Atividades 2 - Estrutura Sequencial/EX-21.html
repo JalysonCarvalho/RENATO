@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<script>
+/*21. Dado o tamanho do lado de um quadrado, calcular a área e o perímetro do mesmo.*/
+
+const lado = Number(prompt("Digite o valor do lado do quadrado:"));
+
+if (lado > 0) {
+    const area = lado ** 2;
+    const perimetro = 4 * lado;
+
+    alert(`A área do quadrado é: ${area.toFixed(2)}`);
+    alert(`O perímetro do quadrado é: ${perimetro.toFixed(2)}`);
+} else {
+    alert("Por favor, insira um valor válido para o lado do quadrado.");
+}
+
+</script>

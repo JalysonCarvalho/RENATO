@@ -1,0 +1,50 @@
+<script>
+    /*33. Em uma cidade se deseja sincronizar os semáforos. Com isto, quando um semáforo abre
+        (fica verde), os veículos que nele estavam parados tendem a encontrar os próximos
+        semáforos também abertos. Para que isto seja feito, os próximos semáforos precisam
+        abrir um pouco depois, dependendo da velocidade permitida na via e da distância entre
+        eles. Assim, ao abrir o semáforo, um veículo começa a acelerar até atingir a velocidade
+        permitida, que mantém até chegar ao próximo semáforo, levando um certo tempo para
+        percorrer essa distância. Para que encontre o próximo semáforo aberto, este deve abrir
+        um pouco antes da chegada do veículo (por ex: 3 segundos antes). Faça assim um
+        algoritmo que informe quanto tempo depois um semáforo deve abrir, dada as seguintes
+        informações: a distância desde o semáforo anterior, a velocidade permitida da via, e a aceleração típica dos carros.*/
+    
+    function calcularTempoSemaforo() {
+        // Solicita os dados via prompt
+        const distancia = parseFloat(prompt("Digite a distância até o próximo semáforo (em metros):"));
+        const velocidade = parseFloat(prompt("Digite a velocidade permitida na via (em m/s):"));
+        const aceleracao = parseFloat(prompt("Digite a aceleração típica dos carros (em m/s²):"));
+    
+        // Verifica se todos os valores são válidos
+        if (distancia <= 0 || velocidade <= 0 || aceleracao <= 0) {
+            alert("Por favor, insira valores válidos.");
+            return;
+        }
+    
+        // Tempo para atingir a velocidade permitida (MRUV: v = v0 + at)
+        const tempoAceleracao = velocidade / aceleracao;
+    
+        // Distância percorrida durante a aceleração (S = v0t + 0.5at²)
+        const distanciaAceleracao = 0.5 * aceleracao * tempoAceleracao * tempoAceleracao;
+    
+        // Distância restante percorrida a velocidade constante
+        const distanciaConstante = distancia - distanciaAceleracao;
+    
+        // Tempo para percorrer a distância restante (MRU: t = s/v)
+        const tempoConstante = distanciaConstante / velocidade;
+    
+        // Tempo total percorrido até o próximo semáforo
+        const tempoTotal = tempoAceleracao + tempoConstante;
+    
+        // O próximo semáforo deve abrir 3 segundos antes do veículo chegar
+        const tempoAbertura = tempoTotal - 3;
+    
+        // Exibe o resultado com um alert
+        alert("O próximo semáforo deve abrir após: " + tempoAbertura.toFixed(2) + " segundos");
+    }
+    
+    // Chama a função para calcular o tempo de abertura do semáforo
+    calcularTempoSemaforo();
+    </script>
+    

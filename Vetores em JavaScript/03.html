@@ -1,0 +1,21 @@
+<script>
+    /*3. Escreva um programa em JavaScript que declare um vetor de inteiros
+com tamanho 5 e preencha-o com valores fornecidos pelo usuario. Em
+seguida, exiba a soma de todos os elementos do vetor.*/
+
+let numeros = [];
+
+for (let i = 0; i < 5; i++) {
+    numeros[i] = parseInt(prompt(`Digite o ${i + 1}° número:`));
+}
+
+let soma = 0;
+
+for (let i = 0; i < numeros.length; i++) {
+    soma += numeros[i];
+}
+
+alert(`A soma dos valores do vetor é: ${soma}`);
+
+
+</script>

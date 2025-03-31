@@ -1,0 +1,18 @@
+<script>
+    /*7. Escreva um programa que declare um vetor de inteiros com tamanho 6 e preencha-o com os números 10, 20, 30, 40, 50 e 60. Em seguida, exiba apenas os elementos pares do vetor.*/
+    
+    function exibirPares() {
+        // Declara o vetor com os números fornecidos
+        let numeros = [10, 20, 30, 40, 50, 60];
+        
+        // Filtra e exibe apenas os elementos pares
+        let pares = numeros.filter(num => num % 2 === 0);
+        
+        // Exibe os elementos pares
+        alert("Elementos pares do vetor: " + pares.join(', '));
+    }
+    
+    // Chama a função para exibir os números pares
+    exibirPares();
+    </script>
+    

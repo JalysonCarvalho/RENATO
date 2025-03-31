@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Bancário</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Tela Inicial com Carrossel -->
+        <div id="telaInicial">
+            <h1>Bem-vindo ao Banco XYZ</h1>
+            <div class="carrossel">
+                <img id="imagemCarrossel" src="img/sistema bancario 1.png";alt="Carrossel 1">
+
+               
+                <img id="imagemCarrossel" src="img/sistema bancario 2.jpg" alt="Carrossel 2">
+                
+                
+                     <img id="imagemCarrossel" src="img/sistema bancario 3.jpg" alt="Carrossel 3"></div>
+            <button onclick="entrarSistema()">Acessar o Sistema</button>
+        </div>
+
+        <!-- Tela de Login -->
+        <div id="login" style="display: none;">
+            <h1>Login</h1>
+            <input type="text" id="username" placeholder="Usuário">
+            <input type="password" id="password" placeholder="Senha">
+            <button onclick="login()">Entrar</button>
+        </div>
+
+        <!-- Menu do Sistema -->
+        <div id="menu" style="display: none;">
+            <h1>Menu Principal</h1>
+            <button onclick="mostrarTela('criarConta')">1.Criar Conta</button>
+            <button onclick="mostrarTela('consultarConta')">2.Consultar Conta</button>
+            <button onclick="mostrarTela('removerConta')">3.Remover Conta</button>
+            <button onclick="mostrarTela('creditar')">4.Creditar</button>
+            <button onclick="mostrarTela('debitar')">5.Debitar</button>
+            <button onclick="mostrarTela('renderJuros')">6.Render Juros</button>
+            <button onclick="mostrarTela('transferir')">7.Transferir</button>
+            <button onclick="listarContas()">8.Listar Contas</button>
+            <button onclick="sair()">9.Sair</button>
+        </div>
+
+        <!-- Área de Operações -->
+        <div id="operacoes" style="display: none;">
+            <h2 id="tituloOperacao"></h2>
+            <form id="formOperacao">
+                <div id="conteudoFormulario"></div>
+                <button type="submit">Confirmar</button>
+            </form>
+            <button onclick="voltarMenu()">Voltar</button>
+        </div>
+
+        <!-- Área de Mensagens -->
+        <div id="mensagens">
+            <h3>Mensagens:</h3>
+            <div id="logMensagens"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
