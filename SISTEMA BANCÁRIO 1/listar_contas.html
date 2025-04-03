@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Contas - Sistema Bancário</title>
+    <style>
+        /* Define a imagem de fundo e suas propriedades */
+        body {
+            background-image: url('img/plano de fundo.png'); /* Caminho da imagem */
+            background-size: cover; /* Faz a imagem cobrir toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Impede que a imagem se repita */
+            height: 100vh; /* Garante que a imagem ocupe toda a altura da tela */
+            font-family: Arial, sans-serif; /* Define a fonte */
+            background-color: #f4f4f4; /* Cor de fundo caso a imagem não carregue */
+            text-align: center; /* Centraliza o texto */
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove preenchimentos padrão */
+        }
+
+        /* Estiliza o cabeçalho */
+.header {
+    background-color: #5771f7; /* Cor azul padrão */
+    padding: 10px 20px; /* Ajusta o espaçamento interno */
+    display: flex; /* Usa flexbox para organizar os elementos */
+    align-items: center; /* Alinha os itens verticalmente */
+    justify-content: space-between; /* Espaço entre logo e menu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Contêiner da logo */
+.header .logo-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Estiliza a logo */
+.logo {
+    width: 120px; /* Define um tamanho fixo */
+    max-width: 100%; /* Garante responsividade */
+    height: auto;
+}
+
+/* Estiliza a navegação */
+.header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Mantém os itens na mesma linha */
+}
+
+/* Estiliza os itens do menu */
+.header ul li {
+    margin: 0 10px;
+}
+
+/* Estiliza os links do menu */
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.header ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Empilha os elementos */
+        text-align: center;
+    }
+
+    .header ul {
+        flex-direction: column; /* Deixa os links em coluna */
+        padding-top: 10px;
+    }
+
+    .header ul li {
+        margin: 5px 0;
+    }
+}
+
+        /* Estiliza o contêiner principal */
+        .container {
+            background-color:#9ba9f8; /* Define o fundo branco */
+            padding: 40px; /* Adiciona espaçamento interno */
+            border-radius: 8px; /* Arredonda os cantos */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+            width: 90%; /* Define a largura */
+            max-width: 800px; /* Define um tamanho máximo */
+            margin: 20px auto; /* Centraliza o elemento */
+        }
+
+        /* Estiliza a tabela */
+        table {
+            width: 100%; /* Faz a tabela ocupar toda a largura */
+            border-collapse: collapse; /* Remove espaçamento entre as bordas */
+            margin-top: 20px; /* Adiciona espaçamento acima */
+        }
+
+        /* Define estilos para células da tabela */
+        th, td {
+            border: 1px solid #ddd; /* Adiciona borda */
+            padding: 10px; /* Adiciona espaçamento interno */
+            text-align: left; /* Alinha o texto à esquerda */
+        }
+
+        /* Define a cor de fundo do cabeçalho da tabela */
+        th {
+            background-color: #007bff; /* Cor azul */
+            color: white; /* Cor do texto branco */
+        }
+
+        /* Define a cor dos status ativos e inativos */
+        .status-active {
+            color: green; /* Texto verde para contas ativas */
+            font-weight: bold; /* Texto em negrito */
+        }
+
+        .status-inactive {
+            color: red; /* Texto vermelho para contas inativas */
+            font-weight: bold; /* Texto em negrito */
+        }
+
+        /* Estiliza os botões */
+        .btn {
+            padding: 8px 12px; /* Adiciona espaçamento interno */
+            margin: 5px; /* Adiciona espaçamento entre botões */
+            border: none; /* Remove bordas */
+            cursor: pointer; /* Altera o cursor para ponteiro */
+            border-radius: 5px; /* Arredonda os cantos */
+            font-weight: bold; /* Deixa o texto em negrito */
+        }
+
+        /* Estiliza o botão de exclusão */
+        .btn-danger {
+            background-color: red; /* Fundo vermelho */
+            color: white; /* Texto branco */
+        }
+
+        /* Altera o estilo do botão de exclusão ao passar o mouse */
+        .btn-danger:hover {
+            background-color: darkred; /* Tom mais escuro de vermelho */
+        }
+
+        /* Estiliza o botão de reativação */
+        .btn-success {
+            background-color: green; /* Fundo verde */
+            color: white; /* Texto branco */
+        }
+
+        /* Altera o estilo do botão de reativação ao passar o mouse */
+        .btn-success:hover {
+            background-color: darkgreen; /* Tom mais escuro de verde */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho da página com a logo e menu de navegação -->
+    <div class="header">
+        <img src="img/logo sistema bancario.png" alt="Logo" class="logo"> <!-- Logo do sistema -->
+        <ul>
+            <li><a href="criar_conta.html">Criar Conta</a></li>
+            <li><a href="consultar_conta.html">Consultar Conta</a></li>
+            <li><a href="remover_conta.html">Remover Conta</a></li>
+            <li><a href="creditar.html">Creditar</a></li>
+            <li><a href="debitar.html">Debitar</a></li>
+            <li><a href="render_juros.html">Render Juros</a></li>
+            <li><a href="transferencia.html">Transferência</a></li>
+            <li><a href="listar_contas.html">Listar Contas</a></li>
+            <li><a href="index.html">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Seção principal com a tabela de contas -->
+    <div class="container">
+        <h2>Lista de Contas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Conta</th>
+                    <th>Agência</th>
+                    <th>Titular</th>
+                    <th>Tipo</th>
+                    <th>Saldo (R$)</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="accountList"></tbody> <!-- Tabela preenchida dinamicamente -->
+        </table>
+
+        <!-- Botão para excluir todas as contas -->
+        <button class="btn btn-danger" onclick="clearAllAccounts()">Excluir Lista de Contas</button>
+    </div>
+
+    <script>
+        /* Carrega as contas armazenadas no localStorage e exibe na tabela */
+        function loadAccounts() {
+            let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+            let tableBody = document.getElementById("accountList");
+
+            tableBody.innerHTML = ""; // Limpa a tabela antes de adicionar os dados
+
+            accounts.forEach((account, index) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${account.number}</td>
+                    <td>${account.agency}</td>
+                    <td>${account.holder.name}</td>
+                    <td>${account.type === "corrente" ? "Conta Corrente" : "Conta Poupança"}</td>
+                    <td>R$ ${account.balance.toFixed(2)}</td>
+                    <td class="${account.active !== false ? 'status-active' : 'status-inactive'}">
+                        ${account.active !== false ? "Ativa" : "Inativa"}
+                    </td>
+                    <td>
+                        ${account.active === false ? `<button class="btn btn-success" onclick="reactivateAccount(${index})">Reativar</button>` : ""}
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        /* Reativa uma conta inativa */
+        function reactivateAccount(index) {
+            let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+            accounts[index].active = true;
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+            loadAccounts();
+        }
+
+        /* Exclui todas as contas */
+        function clearAllAccounts() {
+            localStorage.removeItem("accounts");
+            loadAccounts();
+        }
+
+        document.addEventListener("DOMContentLoaded", loadAccounts);
+    </script>
+
+</body>
+</html>

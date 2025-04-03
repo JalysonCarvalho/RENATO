@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferência - Sistema Bancário</title>
+    <style>
+        /* Estilos gerais da página */
+        body {
+            background-image: url('img/plano de fundo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #5771f7;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        .header ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .header ul li {
+            margin: 0 10px;
+        }
+
+        .header ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .header ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            background-color: #9ba9f8;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            max-width: 400px;
+            min-height: 250px;
+            margin: 20px auto;
+        }
+
+        label, input, button {
+            display: block;
+            width: 95%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        input {
+            border: 1px solid transparent;
+            outline: none;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 101%;
+            padding: 10px;
+            background-color: #004b9b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #335375;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #message {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="img/logo sistema bancario.png" alt="Logo" class="logo">
+        <ul>
+            <li><a href="criar_conta.html">Criar Conta</a></li>
+            <li><a href="consultar_conta.html">Consultar Conta</a></li>
+            <li><a href="remover_conta.html">Remover Conta</a></li>
+            <li><a href="creditar.html">Creditar</a></li>
+            <li><a href="debitar.html">Debitar</a></li>
+            <li><a href="render_juros.html">Render Juros</a></li>
+            <li><a href="transferencia.html">Transferência</a></li>
+            <li><a href="listar_contas.html">Listar Contas</a></li>
+            <li><a href="index.html">Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Transferência entre Contas</h2>
+        <form id="transferForm">
+            <label for="fromAccount">Conta de Origem:</label>
+            <input type="text" id="fromAccount" required placeholder="Digite a conta de origem">
+
+            <label for="toAccount">Conta de Destino:</label>
+            <input type="text" id="toAccount" required placeholder="Digite a conta de destino">
+
+            <label for="amount">Valor a Transferir:</label>
+            <input type="number" id="amount" required min="0.01" step="0.01" placeholder="Digite o valor a transferir">
+
+            <button type="submit">Transferir</button>
+        </form>
+
+        <p id="message" class="hidden"></p>
+    </div>
+
+    <script>
+        // Recupera contas do localStorage ou inicializa um array vazio
+        let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+        function getAccount(accountNumber) {
+            return accounts.find(account => account.number === accountNumber);
+        }
+
+        function debitAccount(accountNumber, amount) {
+            let account = getAccount(accountNumber);
+            if (account) {
+                account.balance -= amount;
+                saveAccounts();
+            }
+        }
+
+        function creditAccount(accountNumber, amount) {
+            let account = getAccount(accountNumber);
+            if (account) {
+                account.balance += amount;
+                saveAccounts();
+            }
+        }
+
+        function saveAccounts() {
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+        }
+
+        document.getElementById("transferForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let fromAccountNumber = document.getElementById("fromAccount").value.trim();
+            let toAccountNumber = document.getElementById("toAccount").value.trim();
+            let amount = parseFloat(document.getElementById("amount").value);
+            let messageElement = document.getElementById("message");
+
+            // Validações
+            if (!fromAccountNumber || !toAccountNumber || isNaN(amount) || amount <= 0) {
+                messageElement.textContent = "Preencha todos os campos corretamente.";
+                messageElement.style.color = "red";
+                messageElement.classList.remove("hidden");
+                return;
+            }
+
+            if (fromAccountNumber === toAccountNumber) {
+                messageElement.textContent = "A conta de origem e destino devem ser diferentes.";
+                messageElement.style.color = "red";
+                messageElement.classList.remove("hidden");
+                return;
+            }
+
+            let originAccount = getAccount(fromAccountNumber);
+            let destinationAccount = getAccount(toAccountNumber);
+
+            if (!originAccount) {
+                messageElement.textContent = "Conta de origem não encontrada!";
+                messageElement.style.color = "red";
+            } else if (!destinationAccount) {
+                messageElement.textContent = "Conta de destino não encontrada!";
+                messageElement.style.color = "red";
+            } else if (originAccount.balance < amount) {
+                messageElement.textContent = "Saldo insuficiente para a transferência!";
+                messageElement.style.color = "red";
+            } else {
+                debitAccount(fromAccountNumber, amount);
+                creditAccount(toAccountNumber, amount);
+                messageElement.textContent = `Transferência de R$ ${amount.toFixed(2)} realizada com sucesso!`;
+                messageElement.style.color = "green";
+            }
+
+            messageElement.classList.remove("hidden");
+            document.getElementById("transferForm").reset();
+        });
+    </script>
+
+</body>
+</html>

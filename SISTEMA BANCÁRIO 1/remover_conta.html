@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover Conta - Sistema Bancário</title>
+    <style>
+        body {
+            background-image: url('img/plano de fundo.png'); /* Caminho da imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    height: 100vh; /* Garante que a imagem ocupe toda a altura da tela */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+         /* Estiliza o cabeçalho */
+.header {
+    background-color: #5771f7; /* Cor azul padrão */
+    padding: 10px 20px; /* Ajusta o espaçamento interno */
+    display: flex; /* Usa flexbox para organizar os elementos */
+    align-items: center; /* Alinha os itens verticalmente */
+    justify-content: space-between; /* Espaço entre logo e menu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Contêiner da logo */
+.header .logo-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Estiliza a logo */
+.logo {
+    width: 120px; /* Define um tamanho fixo */
+    max-width: 100%; /* Garante responsividade */
+    height: auto;
+}
+
+/* Estiliza a navegação */
+.header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Mantém os itens na mesma linha */
+}
+
+/* Estiliza os itens do menu */
+.header ul li {
+    margin: 0 10px;
+}
+
+/* Estiliza os links do menu */
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.header ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Empilha os elementos */
+        text-align: center;
+    }
+
+    .header ul {
+        flex-direction: column; /* Deixa os links em coluna */
+        padding-top: 10px;
+    }
+
+    .header ul li {
+        margin: 5px 0;
+    }
+}
+
+        .container {
+            background-color: #9ba9f8;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        label, input, button {
+            display: block;
+            width: 95%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        input{
+        border: 1px solid transparent; /* Remove a borda preta padrão */
+    outline: none; /* Remove qualquer contorno */
+    background-color: white; /* Garante que o fundo seja branco */
+    padding: 10px; /* Mantém o espaçamento interno */
+    border-radius: 5px; /* Mantém os cantos arredondados */
+
+       }
+       
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 101%;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        .hidden {
+            display: none;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="img/logo sistema bancario.png" alt="Logo" class="logo">
+        <ul>
+            
+            <li><a href="criar_conta.html">Criar Conta</a></li>
+            <li><a href="consultar_conta.html">Consultar Conta</a></li>
+            <li><a href="remover_conta.html">Remover Conta</a></li>
+            <li><a href="creditar.html">Creditar</a></li>
+            <li><a href="debitar.html">Debitar</a></li>
+            <li><a href="render_juros.html">Render Juros</a></li>
+            <li><a href="transferencia.html">Transferência</a></li>
+            <li><a href="listar_contas.html">Listar Contas</a></li>
+            <li><a href="index.html">Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Remover Conta</h2>
+        <label for="accountNumber">Número da Conta:</label>
+        <input type="text" id="accountNumber" placeholder="Número da conta">
+        <button onclick="checkAccount()">Verificar Conta</button>
+
+        <p id="message" class="hidden"></p>
+        <div id="transferSection" class="hidden">
+            <p>Esta conta tem saldo. Você deseja transferir o valor antes de remover?</p>
+            <label for="toAccount">Conta de Destino:</label>
+            <input type="text" id="toAccount" placeholder="Número da conta destino">
+            <button onclick="transferAndRemove()">Transferir e Remover Conta</button>
+        </div>
+
+        <button id="removeButton" class="hidden" onclick="removeAccount()">Remover Conta</button>
+        
+    </div>
+
+    <script>
+        function checkAccount() {
+            let accountNumber = document.getElementById("accountNumber").value;
+            let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+            let account = accounts.find(acc => acc.number === accountNumber);
+
+            let messageElement = document.getElementById("message");
+            let transferSection = document.getElementById("transferSection");
+            let removeButton = document.getElementById("removeButton");
+
+            if (!account || account.active === false) {
+                messageElement.textContent = "Conta não encontrada ou já inativa.";
+                messageElement.style.color = "red";
+                messageElement.classList.remove("hidden");
+                transferSection.classList.add("hidden");
+                removeButton.classList.add("hidden");
+                return;
+            }
+
+            if (account.balance > 0) {
+                transferSection.classList.remove("hidden");
+                removeButton.classList.add("hidden");
+                messageElement.textContent = `A conta tem saldo de R$ ${account.balance.toFixed(2)}.`;
+                messageElement.style.color = "blue";
+            } else {
+                transferSection.classList.add("hidden");
+                removeButton.classList.remove("hidden");
+                messageElement.textContent = "A conta pode ser removida.";
+                messageElement.style.color = "green";
+            }
+            messageElement.classList.remove("hidden");
+        }
+
+        function transferAndRemove() {
+            let fromAccountNumber = document.getElementById("accountNumber").value;
+            let toAccountNumber = document.getElementById("toAccount").value;
+            let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+            let fromAccount = accounts.find(acc => acc.number === fromAccountNumber);
+            let toAccount = accounts.find(acc => acc.number === toAccountNumber);
+
+            let messageElement = document.getElementById("message");
+
+            if (!toAccount) {
+                messageElement.textContent = "Conta de destino não encontrada!";
+                messageElement.style.color = "red";
+                return;
+            }
+
+            toAccount.balance += fromAccount.balance;
+            fromAccount.balance = 0;
+            fromAccount.active = false;
+
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+
+            messageElement.textContent = "Transferência concluída e conta removida!";
+            messageElement.style.color = "green";
+
+            document.getElementById("transferSection").classList.add("hidden");
+            document.getElementById("removeButton").classList.add("hidden");
+        }
+
+        function removeAccount() {
+            let accountNumber = document.getElementById("accountNumber").value;
+            let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+            let account = accounts.find(acc => acc.number === accountNumber);
+
+            if (account && account.balance === 0) {
+                account.active = false;
+                localStorage.setItem("accounts", JSON.stringify(accounts));
+
+                let messageElement = document.getElementById("message");
+                messageElement.textContent = "Conta removida com sucesso!";
+                messageElement.style.color = "green";
+                document.getElementById("removeButton").classList.add("hidden");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    
+    <!-- Define a codificação de caracteres -->
+    <meta charset="UTF-8">
+    <!-- Garante a responsividade da página -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página -->
+    <title>Sistema Bancário - Login</title>
+    
+    <style>
+        /* Estilização geral do corpo da página */
+        body {
+            background-image: url('img/plano de fundo.png'); /* Caminho da imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    height: 100vh; /* Garante que a imagem ocupe toda a altura da tela */
+            font-family: Arial, sans-serif; /* Define a fonte do texto */
+            margin: 0; /* Remove as margens padrão */
+            padding: 0; /* Remove o preenchimento padrão */
+            display: flex; /* Usa flexbox para centralizar elementos */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            height: 100vh; /* Define altura total da tela */
+        }
+
+        /* Estilização da logo */
+        .logo {
+    width: 200px; /* Define um tamanho fixo */
+    max-width: 100%; /* Garante responsividade */
+    height: auto;
+}
+
+        /* Estilização do contêiner de login */
+        .login-container {
+            background-color: #5771f7; /* Fundo branco */
+            padding: 40px; /* Espaçamento interno */
+            border-radius: 8px; /* Borda arredondada */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor do contêiner */
+            width: 90%; /* Largura relativa */
+            max-width: 400px; /* Largura máxima */
+            text-align: center; /* Centraliza o texto */
+        }
+
+        /* Estilização do título */
+        h2 {
+            margin-bottom: 20px; /* Espaço abaixo do título */
+            color: #333; /* Cor do texto */
+        }
+
+        /* Estilização dos campos de entrada */
+        input {
+            width: 95%; /* Define a largura do campo */
+            padding: 10px; /* Adiciona espaçamento interno */
+            margin-bottom: 10px; /* Espaço entre os campos */
+            border: 1px solid #ddd; /* Borda leve */
+            border-radius: 5px; /* Borda arredondada */
+            display: block; /* Garante que ocupe a linha toda */
+        }
+
+        /* Estilização do botão de login */
+        button {
+            width: 101%; /* Define a largura total */
+            padding: 10px; /* Adiciona espaçamento interno */
+            background-color: #004b9b; /* Cor de fundo azul */
+            color: white; /* Cor do texto */
+            border: none; /* Remove a borda padrão */
+            border-radius: 5px; /* Borda arredondada */
+            cursor: pointer; /* Altera o cursor ao passar o mouse */
+            font-size: 16px; /* Tamanho da fonte */
+        }
+
+        /* Efeito ao passar o mouse sobre o botão */
+        button:hover {
+            background-color: #335375; /* Cor mais escura ao passar o mouse */
+        }
+
+        /* Estilização da mensagem de erro */
+        .error {
+            color: red; /* Define a cor vermelha para erros */
+            font-size: 14px; /* Define o tamanho do texto */
+            margin-top: 10px; /* Adiciona espaçamento acima da mensagem */
+        }
+    </style>
+
+    <script>
+        /* Aguarda o carregamento do DOM antes de executar o script */
+        document.addEventListener("DOMContentLoaded", function () {
+            /* Captura o evento de envio do formulário */
+            document.getElementById("loginForm").addEventListener("submit", function (event) {
+                event.preventDefault(); // Evita que a página seja recarregada
+
+                /* Obtém os valores dos campos de entrada */
+                let username = document.getElementById("username").value;
+                let password = document.getElementById("password").value;
+                let errorMessage = document.getElementById("error-message");
+
+                /* Verifica se o login e a senha estão corretos */
+                if (username === "admin" && password === "1234") {
+                    window.location.href = "criar_conta.html"; // Redireciona para a página inicial
+                } else {
+                    errorMessage.textContent = "Usuário ou senha inválidos!"; // Exibe mensagem de erro
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    
+   
+    <!-- Contêiner principal do login -->
+    <div class="login-container">
+        <!-- Exibe a logo -->
+        <img src="img/logo sistema bancario.png" alt="Logo" class="logo">
+        <!-- Título do formulário -->
+        <h2>Login</h2>
+        <!-- Formulário de login -->
+        <form id="loginForm">
+            <!-- Campo para usuário -->
+            <input type="text" id="username" placeholder="Usuário" required>
+            <!-- Campo para senha -->
+            <input type="password" id="password" placeholder="Senha" required>
+            <!-- Botão de envio -->
+            <button type="submit">Entrar</button>
+            <!-- Mensagem de erro -->
+            <p id="error-message" class="error"></p>
+        </form>
+    </div>
+
+</body>
+</html>

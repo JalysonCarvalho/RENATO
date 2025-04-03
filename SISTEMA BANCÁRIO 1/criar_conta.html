@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - Sistema Bancário</title>
+    <style>
+        /* Define o plano de fundo da página */
+        body {
+            background-image: url('img/plano de fundo.png'); /* Caminho da imagem */
+            background-size: cover; /* Faz a imagem cobrir toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Impede que a imagem se repita */
+            height: 100vh; /* Garante que a imagem ocupe toda a altura da tela */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estiliza o cabeçalho */
+        .header {
+            background-color: #5771f7;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            width: 120px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .header ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .header ul li {
+            margin: 0 10px;
+        }
+
+        .header ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .header ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            background-color: #5771f7;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            text-align: left;
+            display: block;
+        }
+
+        input, select, button {
+            padding: 10px;
+            width: 95%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #004b9b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #335375;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #message {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="img/logo sistema bancario.png" alt="Logo" class="logo">
+        <ul>
+            <li><a href="criar_conta.html">Criar Conta</a></li>
+            <li><a href="consultar_conta.html">Consultar Conta</a></li>
+            <li><a href="remover_conta.html">Remover Conta</a></li>
+            <li><a href="creditar.html">Creditar</a></li>
+            <li><a href="debitar.html">Debitar</a></li>
+            <li><a href="render_juros.html">Render Juros</a></li>
+            <li><a href="transferencia.html">Transferência</a></li>
+            <li><a href="listar_contas.html">Listar Contas</a></li>
+            <li><a href="index.html">Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Criar Nova Conta</h2>
+        <form id="createAccountForm">
+            <label for="name">Nome do Titular:</label>
+            <input type="text" id="name" required>
+
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" required maxlength="14">
+
+            <label for="address">Endereço:</label>
+            <input type="text" id="address" required>
+
+            <label for="phone">Telefone:</label>
+            <input type="text" id="phone" required maxlength="15">
+
+            <label for="accountType">Tipo de Conta:</label>
+            <select id="accountType" required>
+                <option value="corrente">Conta Corrente</option>
+                <option value="poupanca">Conta Poupança</option>
+            </select>
+
+            <button type="submit">Criar Conta</button>
+        </form>
+
+        <p id="message" class="hidden"></p>
+    </div>
+
+    <script>
+        function applyCpfMask(value) {
+            return value
+                .replace(/\D/g, '') 
+                .replace(/(\d{3})(\d)/, '$1.$2')
+                .replace(/(\d{3})(\d)/, '$1.$2')
+                .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        }
+
+        function applyPhoneMask(value) {
+            return value
+                .replace(/\D/g, '') 
+                .replace(/(\d{2})(\d)/, '($1) $2')
+                .replace(/(\d{4,5})(\d{4})$/, '$1-$2');
+        }
+
+        document.getElementById("cpf").addEventListener("input", function() {
+            this.value = applyCpfMask(this.value);
+        });
+
+        document.getElementById("phone").addEventListener("input", function() {
+            this.value = applyPhoneMask(this.value);
+        });
+
+        document.getElementById("createAccountForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let cpf = document.getElementById("cpf").value;
+            let address = document.getElementById("address").value;
+            let phone = document.getElementById("phone").value;
+            let accountType = document.getElementById("accountType").value;
+            let messageElement = document.getElementById("message");
+
+            let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+            let lastAccountNumber = parseInt(localStorage.getItem("lastAccountNumber")) || 1;
+
+            let account = {
+                number: String(lastAccountNumber).padStart(4, '0'),
+                agency: "1234",
+                balance: 0,
+                type: accountType,
+                holder: { name, cpf, address, phone },
+                active: true
+            };
+
+            accounts.push(account);
+            lastAccountNumber++;
+
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+            localStorage.setItem("lastAccountNumber", lastAccountNumber);
+
+            messageElement.textContent = `Conta ${accountType} criada com sucesso! Número da conta: ${account.number}`;
+            messageElement.style.color = "green";
+            messageElement.classList.remove("hidden");
+
+            document.getElementById("createAccountForm").reset();
+        });
+    </script>
+
+</body>
+</html>

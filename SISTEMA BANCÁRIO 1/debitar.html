@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debitar - Sistema Bancário</title>
+    <style>
+        body {
+            background-image: url('img/plano de fundo.png'); /* Caminho da imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    height: 100vh; /* Garante que a imagem ocupe toda a altura da tela */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+         /* Estiliza o cabeçalho */
+.header {
+    background-color: #5771f7; /* Cor azul padrão */
+    padding: 10px 20px; /* Ajusta o espaçamento interno */
+    display: flex; /* Usa flexbox para organizar os elementos */
+    align-items: center; /* Alinha os itens verticalmente */
+    justify-content: space-between; /* Espaço entre logo e menu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Contêiner da logo */
+.header .logo-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Estiliza a logo */
+.logo {
+    width: 120px; /* Define um tamanho fixo */
+    max-width: 100%; /* Garante responsividade */
+    height: auto;
+}
+
+/* Estiliza a navegação */
+.header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Mantém os itens na mesma linha */
+}
+
+/* Estiliza os itens do menu */
+.header ul li {
+    margin: 0 10px;
+}
+
+/* Estiliza os links do menu */
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.header ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Empilha os elementos */
+        text-align: center;
+    }
+
+    .header ul {
+        flex-direction: column; /* Deixa os links em coluna */
+        padding-top: 10px;
+    }
+
+    .header ul li {
+        margin: 5px 0;
+    }
+}
+
+        .container {
+            background-color: #9ba9f8;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        label, input, button {
+            display: block;
+            width: 95%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+
+        input{
+        border: 1px solid transparent; /* Remove a borda preta padrão */
+    outline: none; /* Remove qualquer contorno */
+    background-color: white; /* Garante que o fundo seja branco */
+    padding: 10px; /* Mantém o espaçamento interno */
+    border-radius: 5px; /* Mantém os cantos arredondados */
+
+       }
+         /* Estilização do botão */
+         button {
+            width: 101%; /* Define a largura total */
+            padding: 10px; /* Adiciona espaçamento interno */
+            background-color: #004b9b; /* Cor de fundo azul */
+            color: white; /* Cor do texto */
+            border: none; /* Remove a borda padrão */
+            border-radius: 5px; /* Borda arredondada */
+            cursor: pointer; /* Altera o cursor ao passar o mouse */
+            font-size: 16px; /* Tamanho da fonte */
+        }
+
+        /* Efeito ao passar o mouse sobre o botão */
+        button:hover {
+            background-color: #335375; /* Cor mais escura ao passar o mouse */
+        }
+        .hidden {
+            display: none;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="img/logo sistema bancario.png" alt="Logo" class="logo">
+        <ul>
+            
+            <li><a href="criar_conta.html">Criar Conta</a></li>
+            <li><a href="consultar_conta.html">Consultar Conta</a></li>
+            <li><a href="remover_conta.html">Remover Conta</a></li>
+            <li><a href="creditar.html">Creditar</a></li>
+            <li><a href="debitar.html">Debitar</a></li>
+            <li><a href="render_juros.html">Render Juros</a></li>
+            <li><a href="transferencia.html">Transferência</a></li>
+            <li><a href="listar_contas.html">Listar Contas</a></li>
+            <li><a href="index.html">Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Debitar Valor</h2>
+        <form id="debitForm">
+            <label for="accountNumber">Número da Conta:</label>
+            <input type="text" id="accountNumber" required placeholder="Digite o número da conta">
+
+            <label for="amount">Valor a Debitar:</label>
+            <input type="number" id="amount" required min="0.01" step="0.01" placeholder="Digite o valor">
+
+            <button type="submit">Debitar</button>
+        </form>
+
+        <p id="message" class="hidden"></p>
+
+       
+    </div>
+
+    <script>
+        document.getElementById("debitForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let accountNumber = document.getElementById("accountNumber").value.trim();
+            let amount = parseFloat(document.getElementById("amount").value);
+            let messageElement = document.getElementById("message");
+
+            if (isNaN(amount) || amount <= 0) {
+                messageElement.textContent = "Insira um valor válido para débito.";
+                messageElement.style.color = "red";
+                messageElement.classList.remove("hidden");
+                return;
+            }
+
+            let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+            let account = accounts.find(acc => acc.number === accountNumber);
+
+            if (account) {
+                if (account.balance >= amount) {
+                    account.balance -= amount;
+                    localStorage.setItem("accounts", JSON.stringify(accounts));
+
+                    messageElement.textContent = `R$ ${amount.toFixed(2)} debitados da conta ${accountNumber} com sucesso!`;
+                    messageElement.style.color = "green";
+                } else {
+                    messageElement.textContent = "Saldo insuficiente!";
+                    messageElement.style.color = "red";
+                }
+            } else {
+                messageElement.textContent = "Conta não encontrada!";
+                messageElement.style.color = "red";
+            }
+
+            messageElement.classList.remove("hidden");
+            document.getElementById("debitForm").reset();
+        });
+    </script>
+
+</body>
+</html>
