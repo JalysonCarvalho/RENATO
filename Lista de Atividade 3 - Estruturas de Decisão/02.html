@@ -1,0 +1,41 @@
+<script>
+    /* 2- A nota final de um estudante é calculada a partir de 3 notas atribuídas, respectivamente, 
+          a um trabalho de laboratório, a uma avaliação semestral e a um exame final. 
+          A média das três notas mencionadas obedece aos pesos a seguir:
+
+          NOTA                         PESO
+          TRABALHO DE LABORATÓRIO       2
+          AVALIAÇÃO SEMESTRAL           3
+          EXAME FINAL                   5
+
+          Faça um programa que receba as três notas, calcule e mostre a média ponderada e o conceito que se segue à tabela:
+
+          Média ponderada   Conceito
+          8,0  ------- 10,0     A
+          7,0 -------- 8,0      B
+          6,0 -------- 7,0      C
+          5,0 -------- 6,0      D
+          0,0 -------- 5,0      E
+    */
+
+    var lab = parseFloat(prompt("Nota do trabalho de laboratório:"));
+    var av = parseFloat(prompt("Nota da avaliação semestral:"));
+    var exame = parseFloat(prompt("Nota do exame final:"));
+
+    var media = (lab * 2 + av * 3 + exame * 5) / 10;
+    var conceito = "";
+
+    if (media >= 8 && media <= 10) {
+        conceito = "A";
+    } else if (media >= 7) {
+        conceito = "B";
+    } else if (media >= 6) {
+        conceito = "C";
+    } else if (media >= 5) {
+        conceito = "D";
+    } else {
+        conceito = "E";
+    }
+
+    alert("Média ponderada: " + media + "\nConceito: " + conceito);
+</script>

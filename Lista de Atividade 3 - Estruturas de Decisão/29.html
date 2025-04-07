@@ -1,0 +1,47 @@
+<script>
+    /*
+    29 - Uma empresa paga seus empregados como:
+    - Gerentes (código 1): recebem um salário fixo mensal;
+    - Trabalhadores comuns (código 2): recebem um salário fixo por hora para as primeiras 40 horas semanais e 1,5 vez seu salário por hora normal para as horas extras;
+    - Trabalhadores por comissão (código 3): recebem R$ 250,00 + 5,7% de suas vendas brutas;
+    - Trabalhadores por empreitada (código 4): recebem uma quantia fixa por item para cada item produzido.
+    
+    Escreva um programa que calcule o pagamento semanal de cada empregado. Use um switch-case para calcular o pagamento de cada empregado com base em seu código de pagamento. Dentro do switch-case peça ao usuário para entrar com os dados adequados à necessidade de seu programa.
+    */
+    
+    var codigo = parseInt(prompt("Digite o código do tipo de funcionário:\n1 - Gerente\n2 - Trabalhador comum\n3 - Comissão\n4 - Empreitada"));
+    var pagamento;
+    
+    switch (codigo) {
+        case 1:
+            var salarioMensal = parseFloat(prompt("Digite o salário mensal do gerente:"));
+            pagamento = salarioMensal / 4; // pagamento semanal
+            alert("Pagamento semanal do gerente: R$ " + pagamento.toFixed(2));
+            break;
+        case 2:
+            var salarioHora = parseFloat(prompt("Digite o salário por hora:"));
+            var horasTrabalhadas = parseFloat(prompt("Digite o total de horas trabalhadas na semana:"));
+            if (horasTrabalhadas <= 40) {
+                pagamento = salarioHora * horasTrabalhadas;
+            } else {
+                var horasExtras = horasTrabalhadas - 40;
+                pagamento = (salarioHora * 40) + (salarioHora * 1.5 * horasExtras);
+            }
+            alert("Pagamento semanal do trabalhador comum: R$ " + pagamento.toFixed(2));
+            break;
+        case 3:
+            var vendas = parseFloat(prompt("Digite o total de vendas brutas da semana:"));
+            pagamento = 250 + (vendas * 0.057);
+            alert("Pagamento semanal do trabalhador por comissão: R$ " + pagamento.toFixed(2));
+            break;
+        case 4:
+            var valorPorItem = parseFloat(prompt("Digite o valor pago por item produzido:"));
+            var quantidadeItens = parseInt(prompt("Digite o número de itens produzidos na semana:"));
+            pagamento = valorPorItem * quantidadeItens;
+            alert("Pagamento semanal do trabalhador por empreitada: R$ " + pagamento.toFixed(2));
+            break;
+        default:
+            alert("Código inválido!");
+    }
+    </script>
+    

@@ -1,0 +1,19 @@
+<script>
+    /* 19- Implemente um código em JS para aprovar empréstimo bancário.
+           O código deve pedir 3 informações: valor do empréstimo, número de parcelas e salário do solicitante.
+           Aprovar empréstimo caso o valor das parcelas representem no máximo 30% do salário do solicitante.
+    */
+
+    var valorEmprestimo = parseFloat(prompt("Digite o valor do empréstimo:"));
+    var numeroParcelas = parseInt(prompt("Digite o número de parcelas:"));
+    var salario = parseFloat(prompt("Digite o salário do solicitante:"));
+
+    var valorParcela = valorEmprestimo / numeroParcelas;
+    var limite = salario * 0.3;
+
+    if (valorParcela <= limite) {
+        alert("Empréstimo aprovado!");
+    } else {
+        alert("Empréstimo negado. O valor da parcela excede 30% do salário.");
+    }
+</script>

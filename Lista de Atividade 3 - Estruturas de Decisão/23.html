@@ -1,0 +1,25 @@
+
+<script>
+/* 23 - Faça um programa em JS que receba a nota de duas avaliações, 
+ calcule a média e mostre ao usuário APENAS UMA das mensagens abaixo informando a sua situação:
+ MÉDIA           MENSAGEM
+>= 7             "Aprovado"
+= 10             "Arovado com Distinção"
+>= 3 e < 7       "Exame"
+< 3              "Reprovado"*/
+
+var nota1 = parseFloat(prompt("Digite a primeira nota:"));
+var nota2 = parseFloat(prompt("Digite a segunda nota:"));
+
+var media = (nota1 + nota2) / 2;
+
+if (media === 10) {
+    alert("MÉDIA: " + media + " - APROVADO COM DISTINÇÃO");
+} else if (media >= 7) {
+    alert("MÉDIA: " + media + " - APROVADO");
+} else if (media >= 3 && media < 7) {
+    alert("MÉDIA: " + media + " - EXAME");
+} else {
+    alert("MÉDIA: " + media + " - REPROVADO");
+}
+</script>

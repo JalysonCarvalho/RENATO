@@ -1,0 +1,29 @@
+<script>
+    /* 16- Escrever um programa para ler a categoria de uma carteira de motorista e mostrar qual é o tipo de veículo
+           permitido para dirigir.
+           A - motos e triciclos
+           B - carros de passeio
+           C - veículos com carga acima de 3,5 toneladas
+           D - veículos com mais de 8 passageiros
+           E - veículos com unidade acoplada acima de 6 toneladas
+    */
+
+    var categoria = prompt("Digite a categoria da carteira de motorista (A, B, C, D ou E):").toUpperCase();
+    var resultado = "";
+
+    if (categoria === "A") {
+        resultado = "Motos e triciclos";
+    } else if (categoria === "B") {
+        resultado = "Carros de passeio";
+    } else if (categoria === "C") {
+        resultado = "Veículos com carga acima de 3,5 toneladas";
+    } else if (categoria === "D") {
+        resultado = "Veículos com mais de 8 passageiros";
+    } else if (categoria === "E") {
+        resultado = "Veículos com unidade acoplada acima de 6 toneladas";
+    } else {
+        resultado = "Categoria inválida.";
+    }
+
+    alert(resultado);
+</script>

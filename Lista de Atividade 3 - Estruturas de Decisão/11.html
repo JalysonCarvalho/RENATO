@@ -1,0 +1,42 @@
+<script>
+    /* 11- Faça um programa que receba o código correspondente de um funcionário e seu salário atual e mostre o
+           cargo, o valor do aumento e seu novo salário. 
+           CÓDIGO    CARGO        PERCENTUAL
+           1         ESCRITUÁRIO     50%
+           2         SECRETÁRIO      35%
+           3         CAIXA           20%
+           4         GERENTE         10%
+           5         DIRETOR         NÃO TEM AUMENTO
+    */
+
+    var codigo = parseInt(prompt("Digite o código do funcionário:\n1 - Escriturário\n2 - Secretário\n3 - Caixa\n4 - Gerente\n5 - Diretor"));
+    var salario = parseFloat(prompt("Digite o salário atual:"));
+
+    var cargo = "";
+    var aumento = 0;
+    var novoSalario = 0;
+
+    if (codigo === 1) {
+        cargo = "Escriturário";
+        aumento = salario * 0.5;
+    } else if (codigo === 2) {
+        cargo = "Secretário";
+        aumento = salario * 0.35;
+    } else if (codigo === 3) {
+        cargo = "Caixa";
+        aumento = salario * 0.2;
+    } else if (codigo === 4) {
+        cargo = "Gerente";
+        aumento = salario * 0.1;
+    } else if (codigo === 5) {
+        cargo = "Diretor";
+        aumento = 0;
+    } else {
+        alert("Código inválido.");
+    }
+
+    if (codigo >= 1 && codigo <= 5) {
+        novoSalario = salario + aumento;
+        alert("Cargo: " + cargo + "\nAumento: R$ " + aumento + "\nNovo salário: R$ " + novoSalario);
+    }
+</script>

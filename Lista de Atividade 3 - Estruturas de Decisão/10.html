@@ -1,0 +1,32 @@
+<script>
+    /* 10- Faça um programa que mostre o menu de opções a seguir, receba a opção do usuário e os dados necessários
+           para executar cada operação.
+           Menu de opções:
+           - Somar dois números
+           - Multiplicar dois números
+           - Exponencial de um número por outro
+    */
+
+    var opcao = parseInt(prompt("Menu de opções:\n1 - Somar dois números\n2 - Multiplicar dois números\n3 - Exponencial de um número por outro\nDigite sua opção:"));
+
+    var resultado;
+
+    if (opcao === 1) {
+        var n1 = parseFloat(prompt("Digite o primeiro número:"));
+        var n2 = parseFloat(prompt("Digite o segundo número:"));
+        resultado = n1 + n2;
+        alert("Resultado da soma: " + resultado);
+    } else if (opcao === 2) {
+        var n1 = parseFloat(prompt("Digite o primeiro número:"));
+        var n2 = parseFloat(prompt("Digite o segundo número:"));
+        resultado = n1 * n2;
+        alert("Resultado da multiplicação: " + resultado);
+    } else if (opcao === 3) {
+        var base = parseFloat(prompt("Digite a base:"));
+        var expoente = parseFloat(prompt("Digite o expoente:"));
+        resultado = Math.pow(base, expoente);
+        alert("Resultado da exponenciação: " + resultado);
+    } else {
+        alert("Opção inválida.");
+    }
+</script>

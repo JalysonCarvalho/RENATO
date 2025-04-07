@@ -1,0 +1,29 @@
+<script>
+    /* 3- Faça um programa que receba três notas de um aluno, calcule e mostre a média aritmética e a mensagem
+          constante na tabela a seguir. Aos alunos que ficaram para exame, calcule e mostre a nota que deverão tirar
+          para serem aprovados, considerando que a média exigida é 6,0.
+
+          MÉDIA ARITMÉTICA     MENSAGEM
+          0,0 ------- 3,0      REPROVADO
+          3,0 ------- 7,0      EXAME
+          7,0 -------10,0      APROVADO
+    */
+
+    var nota1 = parseFloat(prompt("Digite a primeira nota:"));
+    var nota2 = parseFloat(prompt("Digite a segunda nota:"));
+    var nota3 = parseFloat(prompt("Digite a terceira nota:"));
+
+    var media = (nota1 + nota2 + nota3) / 3;
+    var mensagem = "";
+
+    if (media < 3) {
+        mensagem = "REPROVADO";
+    } else if (media < 7) {
+        var notaExame = (6 * 2) - media;
+        mensagem = "EXAME\nNota necessária no exame para aprovação: " + notaExame;
+    } else {
+        mensagem = "APROVADO";
+    }
+
+    alert("Média: " + media + "\nSituação: " + mensagem);
+</script>

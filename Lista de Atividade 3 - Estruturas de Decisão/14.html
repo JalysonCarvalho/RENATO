@@ -1,0 +1,22 @@
+<script>
+    /* 14- Elaborar um programa para ler um número de 1 a 12 e informar o trimestre correspondente,
+           sendo Jan/Fev/Mar o primeiro trimestre. Se for um número incorreto, mostrar mensagem de erro.
+    */
+
+    var mes = parseInt(prompt("Digite um número de 1 a 12 referente ao mês:"));
+    var trimestre = "";
+
+    if (mes >= 1 && mes <= 3) {
+        trimestre = "1º trimestre (Janeiro, Fevereiro, Março)";
+    } else if (mes >= 4 && mes <= 6) {
+        trimestre = "2º trimestre (Abril, Maio, Junho)";
+    } else if (mes >= 7 && mes <= 9) {
+        trimestre = "3º trimestre (Julho, Agosto, Setembro)";
+    } else if (mes >= 10 && mes <= 12) {
+        trimestre = "4º trimestre (Outubro, Novembro, Dezembro)";
+    } else {
+        trimestre = "Número inválido. Não corresponde a um mês.";
+    }
+
+    alert(trimestre);
+</script>

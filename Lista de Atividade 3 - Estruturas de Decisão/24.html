@@ -1,0 +1,40 @@
+<script>
+    /* 
+    24 - Faça um programa em JS que receba as notas de três avaliações de um aluno, calcule e mostre a sua média 
+    baseada nos critérios abaixo:
+     Média >= 7 -> “Aprovado”
+     Média >= 3 e < 7 -> “Você está em exame”
+     Leia nota do exame
+     mediaFinal = (notaDoExame + media) / 2
+     Mostrar a média final
+     Se mediaFinal >= 5 -> “Aprovado no exame”
+     Senão -> “Reprovado no exame”
+     Média < 3 -> “Reprovado sem direito a exame”
+    */
+    
+    var nota1 = parseFloat(prompt("Digite a primeira nota:"));
+    var nota2 = parseFloat(prompt("Digite a segunda nota:"));
+    var nota3 = parseFloat(prompt("Digite a terceira nota:"));
+    
+    var media = (nota1 + nota2 + nota3) / 3;
+    
+    if (media >= 7) {
+        alert("MÉDIA: " + media + " - Aprovado");
+    } else if (media >= 3 && media < 7) {
+        alert("MÉDIA: " + media + " - Você está em exame");
+    
+        var notaExame = parseFloat(prompt("Digite a nota do exame:"));
+        var mediaFinal = (media + notaExame) / 2;
+    
+        alert("MÉDIA FINAL: " + mediaFinal);
+    
+        if (mediaFinal >= 5) {
+            alert("Aprovado no exame");
+        } else {
+            alert("Reprovado no exame");
+        }
+    } else {
+        alert("MÉDIA: " + media + " - Reprovado sem direito a exame");
+    }
+    </script>
+    

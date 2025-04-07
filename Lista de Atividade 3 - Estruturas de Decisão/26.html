@@ -1,0 +1,70 @@
+<script>
+    /*
+    26 - Zeca está organizando um bolão de futebol. Segundo suas regras, os apostadores informam o placar do jogo
+    e ganham 10 pontos se acertarem o vencedor ou se acertarem que foi empate, e ganham mais 5 pontos para
+    o placar de cada time que acertarem. A tabela a seguir dá um exemplo, considerando que o placar
+    real foi 3x2:
+    
+    Placar Apostado               Pontos               Razão
+         0x1                         0                  Não acertou o vencedor e nem o número de gols do time.
+         0x2                         5                  Não acertou o vencedor, mas acertou o numero de gols do segundo time.
+         3x5                         5                  Não acertou o vencedor, mas acertou o número de gols do primeiro time.
+         1x0                         10                 Acertou o vencedor, mas não acertou o numero de gols dos times.
+         3x1                         15                 Acertou o vencedor e o número de gols do primeiro time.
+         3x2                         20                 Acertou o vencedor e o número de gols de ambos os times.
+    */
+    
+    var placarRealTime1 = 3; // Placar fixo do Time 1
+    var placarRealTime2 = 2; // Placar fixo do Time 2
+    
+    // Solicita o palpite do apostador
+    var palpiteTime1 = parseInt(prompt("Digite seu palpite para os gols do Time 1:"));
+    var palpiteTime2 = parseInt(prompt("Digite seu palpite para os gols do Time 2:"));
+    
+    var pontos = 0;
+    var acertouVencedor = false;
+    var acertouTime1 = false;
+    var acertouTime2 = false;
+    
+    // Verifica se acertou o vencedor ou empate
+    if ((placarRealTime1 > placarRealTime2 && palpiteTime1 > palpiteTime2) ||
+        (placarRealTime1 < placarRealTime2 && palpiteTime1 < palpiteTime2) ||
+        (placarRealTime1 === placarRealTime2 && palpiteTime1 === palpiteTime2)) {
+        pontos += 10;
+        acertouVencedor = true;
+    }
+    
+    // Verifica se acertou os gols do Time 1
+    if (palpiteTime1 === placarRealTime1) {
+        pontos += 5;
+        acertouTime1 = true;
+    }
+    
+    // Verifica se acertou os gols do Time 2
+    if (palpiteTime2 === placarRealTime2) {
+        pontos += 5;
+        acertouTime2 = true;
+    }
+    
+    // Mensagem explicando o motivo da pontuação
+    var mensagem = "";
+    
+    if (!acertouVencedor && !acertouTime1 && !acertouTime2) {
+        mensagem = "Você fez 0 pontos.\nNão acertou o vencedor e nem o número de gols do time.";
+    } else if (!acertouVencedor && !acertouTime1 && acertouTime2) {
+        mensagem = "Você fez 5 pontos.\nNão acertou o vencedor, mas acertou o número de gols do segundo time.";
+    } else if (!acertouVencedor && acertouTime1 && !acertouTime2) {
+        mensagem = "Você fez 5 pontos.\nNão acertou o vencedor, mas acertou o número de gols do primeiro time.";
+    } else if (acertouVencedor && !acertouTime1 && !acertouTime2) {
+        mensagem = "Você fez 10 pontos.\nAcertou o vencedor, mas não acertou o número de gols dos times.";
+    } else if (acertouVencedor && acertouTime1 && !acertouTime2) {
+        mensagem = "Você fez 15 pontos.\nAcertou o vencedor e o número de gols do primeiro time.";
+    } else if (acertouVencedor && !acertouTime1 && acertouTime2) {
+        mensagem = "Você fez 15 pontos.\nAcertou o vencedor e o número de gols do segundo time.";
+    } else if (acertouVencedor && acertouTime1 && acertouTime2) {
+        mensagem = "Você fez 20 pontos.\nAcertou o vencedor e o número de gols de ambos os times.";
+    }
+    
+    alert(mensagem);
+    </script>
+    

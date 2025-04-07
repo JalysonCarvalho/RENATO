@@ -1,0 +1,34 @@
+<script>
+    /*
+    25 - Faça um programa em JS que calcule e apresente quanto deve ser pago por um produto considerando a leitura 
+    do preço de etiqueta (PE) e o código da condição de pagamento (CP). Utilize para os cálculos a tabela de
+    condições de pagamento a seguir: 
+    
+    CÓDIGO DE CONDIÇÃO DE PAGAMENTO:
+    1 - À vista em dinheiro ou cheque, com 10% de desconto
+    2 - À vista com cartão de crédito, com 5% de desconto
+    3 - Em 2 vezes, preço normal de etiqueta sem juros
+    4 - Em 3 vezes, preço de etiqueta com acréscimo de 10%
+    */
+    
+    var precoEtiqueta = parseFloat(prompt("Digite o preço de etiqueta do produto:"));
+    var codigoPagamento = parseInt(prompt("Digite o código da condição de pagamento (1 a 4):"));
+    var valorFinal;
+    
+    if (codigoPagamento === 1) {
+        valorFinal = precoEtiqueta - (precoEtiqueta * 0.10);
+        alert("Pagamento à vista em dinheiro ou cheque.\nValor a pagar: R$ " + valorFinal);
+    } else if (codigoPagamento === 2) {
+        valorFinal = precoEtiqueta - (precoEtiqueta * 0.05);
+        alert("Pagamento à vista no cartão de crédito.\nValor a pagar: R$ " + valorFinal);
+    } else if (codigoPagamento === 3) {
+        valorFinal = precoEtiqueta;
+        alert("Pagamento em 2 vezes sem juros.\nValor a pagar: R$ " + valorFinal + " (2x de R$ " + (valorFinal / 2) + ")");
+    } else if (codigoPagamento === 4) {
+        valorFinal = precoEtiqueta + (precoEtiqueta * 0.10);
+        alert("Pagamento em 3 vezes com acréscimo de 10%.\nValor a pagar: R$ " + valorFinal + " (3x de R$ " + (valorFinal / 3) + ")");
+    } else {
+        alert("Código de condição de pagamento inválido.");
+    }
+    </script>
+    

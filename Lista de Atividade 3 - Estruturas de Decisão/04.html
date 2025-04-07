@@ -1,0 +1,30 @@
+<script>
+    /* 4- Fazer um programa que recebe duas notas parciais de um aluno (0 a 100) e informa se ele está aprovado
+          (média maior ou igual a 70), em exame final (média entre 40 e 69) ou reprovado (média menor do que 40).
+          Caso esteja em exame o programa deve pedir a nota do exame (0 a 100) e informar se o aluno está aprovado
+          (média mais nota do exame maior ou igual a 100) ou reprovado (média mais nota do exame menor do que 100).
+    */
+
+    var nota1 = parseFloat(prompt("Digite a primeira nota (0 a 100):"));
+    var nota2 = parseFloat(prompt("Digite a segunda nota (0 a 100):"));
+
+    var media = (nota1 + nota2) / 2;
+    var mensagem = "";
+
+    if (media >= 70) {
+        mensagem = "APROVADO";
+    } else if (media >= 40 && media <= 69) {
+        var exame = parseFloat(prompt("Média insuficiente. Digite a nota do exame (0 a 100):"));
+        var soma = media + exame;
+
+        if (soma >= 100) {
+            mensagem = "APROVADO no exame";
+        } else {
+            mensagem = "REPROVADO no exame";
+        }
+    } else {
+        mensagem = "REPROVADO";
+    }
+
+    alert("Média: " + media + "\nSituação: " + mensagem);
+</script>

@@ -1,0 +1,33 @@
+<script>
+    /* 18- Elaborar um programa que execute as 4 operações básicas da matemática (adição – subtração – divisão – multiplicação)
+           Este programa deverá ter um menu com essas 4 opções, irá receber dois números e o usuário irá selecionar
+           a operação de acordo com sua necessidade.
+    */
+
+    var numero1 = parseFloat(prompt("Digite o primeiro número:"));
+    var numero2 = parseFloat(prompt("Digite o segundo número:"));
+
+    var operacao = prompt(
+        "Escolha a operação:\n1 - Adição\n2 - Subtração\n3 - Multiplicação\n4 - Divisão"
+    );
+
+    var resultado = "";
+
+    if (operacao === "1") {
+        resultado = "Resultado da adição: " + (numero1 + numero2);
+    } else if (operacao === "2") {
+        resultado = "Resultado da subtração: " + (numero1 - numero2);
+    } else if (operacao === "3") {
+        resultado = "Resultado da multiplicação: " + (numero1 * numero2);
+    } else if (operacao === "4") {
+        if (numero2 !== 0) {
+            resultado = "Resultado da divisão: " + (numero1 / numero2);
+        } else {
+            resultado = "Não é possível dividir por zero.";
+        }
+    } else {
+        resultado = "Operação inválida.";
+    }
+
+    alert(resultado);
+</script>

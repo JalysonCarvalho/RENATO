@@ -1,0 +1,34 @@
+<script>
+    /* 12- Faça um programa que receba o salário de um funcionário, calcule e mostre o novo salário, 
+           acrescido de bonificação e de auxílio escola.
+           
+           Bonificação:
+           - Até R$ 500,00 → 5%
+           - Entre R$ 500,01 e R$ 1.200,00 → 12%
+           - Acima de R$ 1.200,00 → Sem bonificação
+           
+           Auxílio escola:
+           - Até R$ 600,00 → R$ 150,00
+           - Acima de R$ 600,00 → R$ 100,00
+    */
+
+    var salario = parseFloat(prompt("Digite o salário do funcionário:"));
+    var bonificacao = 0;
+    var auxilio = 0;
+
+    if (salario <= 500) {
+        bonificacao = salario * 0.05;
+    } else if (salario <= 1200) {
+        bonificacao = salario * 0.12;
+    }
+
+    if (salario <= 600) {
+        auxilio = 150;
+    } else {
+        auxilio = 100;
+    }
+
+    var novoSalario = salario + bonificacao + auxilio;
+
+    alert("Bonificação: R$ " + bonificacao + "\nAuxílio escola: R$ " + auxilio + "\nNovo salário: R$ " + novoSalario);
+</script>

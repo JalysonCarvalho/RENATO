@@ -1,0 +1,29 @@
+<script>
+    /* 13- Construir um programa para ler um número de 1 a 7 e informar o dia da semana correspondente,
+           sendo domingo o dia de número 1. Se o número não corresponder a um dia da semana, é mostrada
+           uma mensagem de erro.
+    */
+
+    var numero = parseInt(prompt("Digite um número de 1 a 7:"));
+    var dia = "";
+
+    if (numero === 1) {
+        dia = "Domingo";
+    } else if (numero === 2) {
+        dia = "Segunda-feira";
+    } else if (numero === 3) {
+        dia = "Terça-feira";
+    } else if (numero === 4) {
+        dia = "Quarta-feira";
+    } else if (numero === 5) {
+        dia = "Quinta-feira";
+    } else if (numero === 6) {
+        dia = "Sexta-feira";
+    } else if (numero === 7) {
+        dia = "Sábado";
+    } else {
+        dia = "Número inválido. Não corresponde a um dia da semana.";
+    }
+
+    alert(dia);
+</script>

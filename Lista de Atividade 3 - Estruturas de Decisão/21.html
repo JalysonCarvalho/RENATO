@@ -1,0 +1,36 @@
+<script>
+    /* 21 - Implemente um programa em JS que leia o código de um determinado produto
+       e mostre a sua classificação, utilizando a estrutura switch.
+    */
+
+    var codigo = parseInt(prompt("Digite o código do produto:"));
+    var classificacao = "";
+
+    switch (codigo) {
+        case 1:
+            classificacao = "Alimento não-perecível";
+            break;
+        case 2:
+        case 3:
+        case 4:
+            classificacao = "Alimento perecível";
+            break;
+        case 5:
+        case 6:
+            classificacao = "Vestuário";
+            break;
+        case 7:
+            classificacao = "Higiene pessoal";
+            break;
+        case 8:
+        case 9:
+        case 10:
+            classificacao = "Utensílios domésticos";
+            break;
+        default:
+            classificacao = "Código inválido";
+            break;
+    }
+
+    alert("Classificação: " + classificacao);
+</script>

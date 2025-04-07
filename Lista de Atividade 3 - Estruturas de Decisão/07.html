@@ -1,0 +1,21 @@
+<script>
+    /* 7- Escreva um programa que calcule o salário semanal de um trabalhador. As entradas são o número de horas
+          trabalhadas na semana e o valor da hora. Até 40 h/semana não se acrescenta nenhum adicional. Acima de
+          40h e até 60h há um bônus de 50% para essas horas. Acima de 60h há um bônus de 100% para essas horas.
+    */
+
+    var horas = parseFloat(prompt("Digite o número de horas trabalhadas na semana:"));
+    var valorHora = parseFloat(prompt("Digite o valor da hora:"));
+
+    var salario = 0;
+
+    if (horas <= 40) {
+        salario = horas * valorHora;
+    } else if (horas <= 60) {
+        salario = (40 * valorHora) + ((horas - 40) * valorHora * 1.5);
+    } else {
+        salario = (40 * valorHora) + (20 * valorHora * 1.5) + ((horas - 60) * valorHora * 2);
+    }
+
+    alert("Salário semanal: R$ " + salario);
+</script>

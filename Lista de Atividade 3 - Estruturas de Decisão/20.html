@@ -1,0 +1,24 @@
+<script>
+    /* 20- Implemente um programa em JS que leia o código de um determinado produto
+           e mostre a sua classificação, utilizando estrutura if else.
+    */
+
+    var codigo = parseInt(prompt("Digite o código do produto:"));
+    var classificacao = "";
+
+    if (codigo === 1) {
+        classificacao = "Alimento não-perecível";
+    } else if (codigo === 2 || codigo === 3 || codigo === 4) {
+        classificacao = "Alimento perecível";
+    } else if (codigo === 5 || codigo === 6) {
+        classificacao = "Vestuário";
+    } else if (codigo === 7) {
+        classificacao = "Higiene pessoal";
+    } else if (codigo === 8 || codigo === 9 || codigo === 10) {
+        classificacao = "Utensílios domésticos";
+    } else {
+        classificacao = "Código inválido";
+    }
+
+    alert("Classificação: " + classificacao);
+</script>
